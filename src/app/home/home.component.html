@@ -1,0 +1,242 @@
+<!--middle-section-->
+<div class="middle-section">
+  <div class="home-slider-section">
+      <owl-carousel [options]="homeSlideOptions" [carouselClasses]="['owl-theme', 'sliding']" >
+          <div class="item" *ngFor="let images of homeSlideImages;let i = index">
+            <a href="{{ images.link }}" target="_blank">
+              <div class="home-slider-images" [ngStyle]="{'background-image':'url('+images.image+')'}"> </div>
+            </a>
+          </div>
+      </owl-carousel>
+      <p class="ribbon-title">{{ 'hometab_heading' | translate }}</p>
+      <div class="filter-icon-section" (click)="filterModal(filterpopup)">
+        <img src="../../assets/images/filter-icon.svg">
+      </div>
+  </div>
+
+  <div class="home-tab-section">
+      <div class="custom-container">
+        <tabset type="pills">
+            <tab heading="{{ 'hometab_series' | translate }}">
+              <!--series tab slider-->
+                <div *ngIf="globalservice.tabSeriesData.length > 0" class="tab-slider-section">
+                    <owl-carousel [options]="tabSlideOptions" [carouselClasses]="['owl-theme', 'sliding']" ng-repeat-owl-carousel carousel-init="carouselInitializer">
+                        <div class="item" *ngFor="let series of globalservice.tabSeriesData;let i = index">
+                            <app-card-series [series]="series"></app-card-series>
+                        </div>
+                    </owl-carousel>
+                </div>
+                <div class="no-record" *ngIf="globalservice.tabSeriesData.length == 0">
+                  <div class="notview-all-record" >{{'norecord' | translate}}</div>
+                </div>
+              <!---end-->
+            </tab>
+            <tab heading="{{ 'hometab_nanos' | translate }}">
+                <div *ngIf="globalservice.tabNanosData.length > 0" class="nano-slider-section">
+                    <owl-carousel [options]="nanoSlideOptions" [carouselClasses]="['owl-theme', 'sliding']" >
+                      <div class="item" *ngFor="let nanos of globalservice.tabNanosData;let i = index">
+                         <app-card-nanostory [nanos]="nanos"></app-card-nanostory>
+                      </div>
+                    </owl-carousel>
+                </div>
+                <div class="no-record" *ngIf="globalservice.tabNanosData.length == 0">
+                  <div class="notview-all-record" >{{'norecord' | translate}}</div>
+                </div>
+            </tab>
+            <tab heading="{{ 'hometab_stories' | translate }}">
+                <div class="tab-slider-section" *ngIf="globalservice.latestStoriesCollection.length > 0">
+                    <owl-carousel [options]="tabSlideOptions" [carouselClasses]="['owl-theme', 'sliding', 'auth-slide']" >
+                      <div class="item" *ngFor="let stories of globalservice.latestStoriesCollection;let i = index">
+                           <app-card-stories [stories]="stories"></app-card-stories>
+                      </div>
+                    </owl-carousel>
+                </div>
+                <div class="no-record" *ngIf="globalservice.latestStoriesCollection.length == 0">
+                  <div class="notview-all-record" >{{'norecord' | translate}}</div>
+                </div>
+            </tab>
+            <!-- <tab heading="{{ 'hometab_author' | translate }}">
+                <div class="auhtor-slider-tab" *ngIf="globalservice.latestAuthorCollection.length > 0">
+                    <owl-carousel [options]="authSlideOptions" [carouselClasses]="['owl-theme', 'sliding', 'auth-slide']" >
+                      <div class="item" *ngFor="let author of globalservice.latestAuthorCollection;let i = index">
+                         <app-card-author [author]="author"></app-card-author>
+                      </div>
+                    </owl-carousel>
+                </div>
+                <div class="no-record" *ngIf="globalservice.latestAuthorCollection.length == 0">
+                  <div class="notview-all-record" >{{'norecord' | translate}}</div>
+                </div>
+            </tab> -->
+        </tabset>
+      </div>
+  </div>
+
+  <!-- Popular Authors start -->
+  <div class="auth-titllebar" *ngIf="popularAuthors">
+    <div class="auth-title">{{'home_popularauthors' | translate}}</div>
+    <a *ngIf="!authservice.isLogin" (click)="loginModal(loginpopup)">
+      <div class="all-auth">{{'home_seeallauthors' | translate}}</div>
+    </a>
+    <a routerLink="/all/authors/popular" *ngIf="authservice.isLogin && popularAuthors.length > 5" >
+      <div class="all-auth">{{'home_seeallauthors' | translate}}</div>
+    </a>
+  </div>
+  <div class="fiction-slider-section author-feed" *ngIf="popularAuthors.length > 0">
+    <owl-carousel [options]="authSlideOptions" [carouselClasses]="['owl-theme', 'sliding', 'auth-slide']" >
+      <div class="item" *ngFor="let author of popularAuthors;let i = index">
+        <app-card-author [author]="author"></app-card-author>
+    </div>
+    </owl-carousel>
+  </div>
+  <div class="no-record" *ngIf="popularAuthors.length == 0">
+    <div class="notview-all-record" >{{'norecord' | translate}}</div>
+  </div>
+  <!-- Popular Authors End -->
+
+
+  <!-- Popular Series start -->
+  <div *ngIf="popularSeries.length > 0">
+    <div class="auth-titllebar">
+      <div class="auth-title">{{'popularseries' | translate}}</div>
+      <a *ngIf="!authservice.isLogin" (click)="loginModal(loginpopup)">
+        <div class="all-auth">{{'seeallseries' | translate}}</div>
+      </a>
+      <a routerLink="/all/series/popular" *ngIf="authservice.isLogin && popularSeries.length > 4" >
+        <div class="all-auth">{{'seeallseries' | translate}}</div>
+      </a>
+    </div>
+    <div class="fiction-slider-section">
+        <owl-carousel [options]="tabSlideOptions" [carouselClasses]="['owl-theme', 'sliding']" ng-repeat-owl-carousel carousel-init="carouselInitializer">
+            <div class="item" *ngFor="let series of popularSeries;let i = index">
+                <app-card-series [series]="series"></app-card-series>
+            </div>
+        </owl-carousel>
+    </div>
+  </div>
+  <!-- Popular Series end -->
+
+  <!-- Popular Stories start -->
+  <div *ngIf="popularStories.length > 0">
+    <div class="auth-titllebar">
+      <div class="auth-title">{{'popularstories' | translate}}</div>
+      <a *ngIf="!authservice.isLogin" (click)="loginModal(loginpopup)">
+        <div class="all-auth">{{'seeallstories' | translate}}</div>
+      </a>
+      <a routerLink="/all/stories/popular" *ngIf="authservice.isLogin && popularStories.length > 4" >
+        <div class="all-auth">{{'seeallstories' | translate}}</div>
+      </a>
+    </div>
+    <div class="fiction-slider-section">
+        <owl-carousel [options]="tabSlideOptions" [carouselClasses]="['owl-theme', 'sliding', 'auth-slide']" >
+          <div class="item" *ngFor="let stories of popularStories;let i = index">
+                <app-card-stories [stories]="stories"></app-card-stories>
+          </div>
+        </owl-carousel>
+    </div>
+  </div>
+  <!-- Popular Stories end -->
+
+  <!-- Popular nano story start -->
+  <div *ngIf="popularNanoStories.length > 0">
+    <div class="auth-titllebar">
+      <div class="auth-title">{{'popularnanostories' | translate}}</div>
+      <a *ngIf="!authservice.isLogin" (click)="loginModal(loginpopup)">
+        <div class="all-auth">{{'seeallnanostories' | translate}}</div>
+      </a>
+      <a routerLink="/all/nanostory/popular" *ngIf="authservice.isLogin && popularNanoStories.length > 4" >
+        <div class="all-auth">{{'seeallnanostories' | translate}}</div>
+      </a>
+    </div>
+    <div class="fiction-slider-section">
+        <owl-carousel [options]="nanoSlideOptions" [carouselClasses]="['owl-theme', 'sliding']" >
+          <div class="item" *ngFor="let nanos of popularNanoStories;let i = index">
+              <app-card-nanostory [nanos]="nanos"></app-card-nanostory>
+          </div>
+        </owl-carousel>
+    </div>
+  </div>
+  <!-- Popular nano stories end -->
+
+
+  <!--popular contest section-->
+  <!-- <div class="popular-author-section popular-contests-section">
+      <div class="auth-titllebar">
+        <div class="auth-title">{{ 'home_contests' | translate }}</div>
+        <a *ngIf="!authservice.isLogin" (click)="loginModal(loginpopup)">
+          <div class="all-auth">{{ 'home_seeallcontests' | translate }}</div>
+        </a>
+        <a routerLink="/all/contests/popular" *ngIf="authservice.isLogin">
+          <div class="all-auth">{{ 'home_seeallcontests' | translate }}</div>
+        </a>
+      </div>
+      <div class="contest-slider">
+        <owl-carousel [options]="contestSlideOptions"  [carouselClasses]="['owl-theme', 'sliding', 'cont-slide']" >
+          <div class="item" *ngFor="let image of contestSlideImages;let i = index">
+            <app-card-contest [image]="image"></app-card-contest>
+          </div>
+        </owl-carousel>
+      </div>
+  </div> -->
+  <!--end-->
+
+  <!--popular stories section-->
+  <div *ngFor="let genreData of latestGenreCollection;let i = index">
+    <div class="popular-fiction-section" *ngIf="genreData.length">
+        <div class="auth-titllebar">
+          <div class="auth-title">{{ 'home_popularstoriesin' | translate }} {{ genreData[0].genre_title }}</div>
+          <a *ngIf="!authservice.isLogin" (click)="loginModal(loginpopup)"><div class="all-auth">{{ 'home_seeallin' | translate }} {{ genreData[0].genre_title }}</div></a>
+          <a routerLink="/all/genre/{{ genreData[0].genre_id }}" *ngIf="authservice.isLogin"><div class="all-auth">{{ 'home_seeallin' | translate }} {{ genreData[0].genre_title }}</div></a>
+        </div>
+        <div *ngIf="genreData" class="fiction-slider-section">
+            <owl-carousel [options]="fictionSlideOptions"  [carouselClasses]="['owl-theme', 'sliding', 'fiction-slide']" >
+                <div class="item" *ngFor="let stories of genreData;let i = index">
+                   <app-card-stories [stories]="stories" [genreData]="genreData"></app-card-stories>
+                  </div>
+            </owl-carousel>
+        </div>
+    </div>
+  </div>
+  <!--end-->
+
+
+</div>
+<!--end-->
+<!--loding section-->
+<div *ngIf="!hideGenreLoader()" class="custom-container">
+  <div class="loader">
+    <img src="../../assets/images/loader.gif">
+    <p>{{ 'home_loadingmoregenres' | translate }}</p>
+  </div>
+</div>
+
+<!--end-->
+<ng-template #filterpopup>
+    <div class="logo">Kahaniya</div>
+    <div class="modal-header filter-header">
+      <h4 class="modal-title pull-left">{{ 'home_chooseyourfavoritegenre' | translate }}</h4>
+    </div>
+    <div class="modal-body write-popup-content filter-popup-content">
+      <div class="main-popup-section">
+        <div class="language-select">
+          <div class="col-md-3 language-select-section" *ngFor="let genresData of globalservice.allGenres">
+            <button class="btn btn-primary btn-lang {{ selectedGenre.indexOf(genresData.id) !== -1 ? 'selected' : '' }} " (click)="genreClick(genresData)">{{ genresData.title }}<i class="fa fa-close"></i></button>
+          </div>
+        </div>
+        <div class="button-section">
+          <button type="button" class="popup-save-btn" (click)="saveGenre()">{{ 'save' | translate }}</button>
+          <button type="button" class="close popup-close-btn" aria-label="Close" (click)="modalRef.hide()">{{ 'close' | translate }}</button>
+
+        </div>
+      </div>
+    </div>
+</ng-template>
+
+<ng-template #loginpopup>
+    <app-signupmodal  (loginModelClose)="loginModelCloseEmit()" ></app-signupmodal>
+  <ng-template>
+
+
+
+
+
+

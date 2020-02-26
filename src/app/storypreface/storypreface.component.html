@@ -1,0 +1,123 @@
+<span *ngIf="!seriesCollection" class="detail-page-loader"><img src="../../assets/images/loader.gif"></span>
+<!--middle section-->
+<div class="inner-middle-section" *ngIf="seriesCollection">
+  <div class="inner-header"></div>
+  <div class="inner-content-section">
+    <div class="inner-left">
+      <div class="subscribe-section">
+        <img class="subscription-img" default="{{globalservice.dummyImage}}" src="{{ seriesCollection.cover_image_data }}">
+        <div class="subscribe-content">
+          <p class="s-history">{{"subscribetothisstory" | translate}}</p>
+          <div class="total-subscribe-sec">
+            <img src="../../assets/images/subscription.svg">
+            <span>{{ seriesCollection.subscribers }} {{"subscribers" | translate}}</span>
+          </div>
+          <button class="btn btn-primary btn-subscribe" *ngIf="!seriesCollection.is_subscribed" (click)="subscribeSeries()">{{"subscribe" | translate}}</button>
+          <button class="btn btn-primary btn-subscribe" *ngIf="seriesCollection.is_subscribed" (click)="unsubscribeSeries()">{{"unsubscribe" | translate}}</button>
+        </div>
+      </div>
+      <div class="episode-section">
+        <div class="episode-header">{{"episodes" | translate}}</div>
+        <div class="episode-content" *ngIf="seriesCollection">
+
+            <div class="episode-num-name" *ngFor="let episode of seriesCollection.stories;let i = index">
+               <a routerLink="/s/{{seriesCollection.title_id}}/{{ episode.title_id }}" class="epi-anchor">
+                  <div class="episode-num">
+                    <div class="e-no pending-view">{{i+1}}</div>
+                    <div class="e-name">{{"episode" | translate}} {{i+1}}</div>
+                  </div>
+              </a>
+              <div class="episode-bookmark">
+                <img src="../../assets/images/bookmark-select.svg" (click)="deleteBookmark(episode.id)" *ngIf="episode.is_bookmarked">
+                <img src="../../assets/images/bookmark.svg" (click)="createBookmark(episode.id)" *ngIf="!episode.is_bookmarked">
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="inner-middle">
+      <div class="main-story-section">
+        <div class="story-header">
+          <div class="story-name">{{ seriesCollection.title }}</div>
+          <div class="writer-name">{{ seriesCollection.tag_line }}</div>
+        </div>
+        <div class="story-review-share-zoom-section">
+          <div class="view-review-section">
+            <div class="story-view">
+              <img src="../../assets/images/eye.svg">
+              <span>1,202 {{"views" | translate}}</span>
+            </div>
+            <div class="story-review">
+                <img src="../../assets/images/star-no-selected.svg">
+                <span *ngIf="reviewsCollection">{{ reviewsCollection.count }} {{"reviews" | translate}}</span>
+              </div>
+          </div>
+          <!-- <div class="share-info-zoom-section">
+            <div class="info-img"><img src="../../assets/images/info.svg"></div>
+            <div class="share-img"><img src="../../assets/images/share.svg"></div>
+            <div class="zoom-img"><img src="../../assets/images/full-screen.svg"></div>
+          </div> -->
+        </div>
+        <div class="story-main-content">
+            <quill-view [content]="getnanoData(seriesCollection.preface)" format="object" ></quill-view>
+        </div>
+
+      </div>
+
+
+      <div class="comment-section" *ngIf="reviewsCollection">
+        <div class="comment-header">
+            <div class="comment-title">Review({{ reviewsCollection.count }})</div>
+        </div>
+        <div class="comment-content-section">
+            <div class="type-comment-section">
+              <div class="login-user-img-sec">
+                <img default="{{ globalservice.dummyuser }}" src="{{ userProfilePic }}">
+              </div>
+              <input class="type-comment" type="text" name="type-comment" [(ngModel)]="writereviews" placeholder="Type your Review here">
+              <button class="add-comment" [disabled]="!writereviews" (click)="addReview()">
+                <div class="add-comment-img"></div>
+              </button>
+            </div>
+            <div class="all-comment-sec" >
+              <div class="a-c-se" *ngFor="let reviews of reviewsCollection.results">
+                <div class="user-img"><img default="{{ globalservice.dummyuser }}" src="{{ reviews.user.image }}"></div>
+                <div class="user-com-des">
+                  <h6>{{ reviews.user.full_name }}</h6>
+                  <p>{{ reviews.content }}</p>
+                  <!-- <div class="replay-bnt">REPLY</div> -->
+                </div>
+                <div class="comment-post-date">Posted on {{ convertDate(reviews.created_at) }}</div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="inner-right">
+      <div class="i-right-content">
+        <div class="i-bg-right"><img src="../../assets/images/story-p-right-bg.png"></div>
+          <div class="i-content">
+              <a routerLink="/u/{{ seriesCollection.author.id }}">
+                <img default="{{ globalservice.dummyuser }}" src="{{ seriesCollection.author.image }}">
+              </a>
+              <div class="i-auth-name">{{ seriesCollection.author.full_name }}</div>
+              <div class="i-auth-des" [innerHTML]="seriesCollection.author.biography"></div>
+              <div class="follow-writing-section">
+                <div class="followers-section">
+                  <div class="followers-count">{{ seriesCollection.author.followers }}</div>
+                  <div class="f-name">{{"prowrit_followers" | translate}}</div>
+                </div>
+                <div class="writing-section">
+                  <div class="writing-count">{{ seriesCollection.author.writings }}</div>
+                  <div class="w-name">{{"prowrit_writtings" | translate}}</div>
+                </div>
+              </div>
+              <button [disabled]="seriesCollection.author.id == userId" *ngIf="!seriesCollection.author.is_following" class="btn btn-primary btn-follow i-btn-follow" (click)="followAuthor(seriesCollection.author.id)">{{"follow" | translate}}</button>
+              <button [disabled]="seriesCollection.author.id == userId" *ngIf="seriesCollection.author.is_following" class="btn btn-primary btn-follow i-btn-follow" (click)="unfollowAuthor(seriesCollection.author.id)">{{"unfollow" | translate}}</button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

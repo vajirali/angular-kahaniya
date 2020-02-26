@@ -1,0 +1,23 @@
+<a routerLink="{{ userid && userid == series.author_id ? '/preface/'+series.id : '/s/'+series.title_id }}">
+  <img class="tab-image" src={{series.cover_image}}  default="{{ globalservice.dummyImage}}" *ngIf="!authservice.isLogin" (click)="loginModal(loginpopup)"/>
+  <img class="tab-image"src={{series.cover_image}} default="{{ globalservice.dummyImage}}" *ngIf="authservice.isLogin"/>
+  </a>
+  <!--taab-slider-description-->
+  <div class="tab-image-content">
+     <div class="story-name-count-sec">
+       <div class="story-name">{{series.title}}</div>
+       <div class="story-count"><img src="../../assets/images/subscription.svg" /><span>{{ series.subscribers}}</span></div>
+     </div>
+     <div class="episodes">{{series.no_of_stories}} Episodes</div>
+     <div class="writer-img-name">
+       <div class="writer-img"><img default="{{ globalservice.dummyuser }}" src="{{ series.author_image }}" /></div>
+       <div class="write-name-des">
+         <h6>{{ series.author_full_name }}</h6>
+         <p>In {{ series.genre_title }}</p>
+       </div>
+     </div>
+   </div>
+
+<ng-template #loginpopup>
+  <app-signupmodal  (loginModelClose)="loginModelCloseEmit()" ></app-signupmodal>
+<ng-template>

@@ -1,0 +1,124 @@
+<!---security section-->
+<div class="security-section">
+    <div class="s-s-h">
+      <div class="s-title">{{"security" | translate}}</div>
+      <div class="s-edit"><img src="../../assets/images/security-edit.svg"></div>
+    </div>
+    <div class="s-s-c">
+      <div class="s-username-sec">
+        <div class="s-u-title">{{"username" | translate}}</div>
+        <div class="s-user">1231f-23wef2-rwewwewe-rewr443r</div>
+      </div>
+      <div class="s-password-sec">
+          <div class="s-u-title">{{"password" | translate}}</div>
+          <div class="s-pass">Last updated on July 24, 2018</div>
+      </div>
+    </div>
+</div>
+<!--Genres section-->
+<div *ngIf="globalservice.allGenres.length > 0"  class="genres-section">
+    <div class="s-s-h">
+        <div class="s-title">{{"wrstrory_genre" | translate}}</div>
+        <div class="s-edit" (click)="filterModal(filterpopup)"><img src="../../assets/images/security-edit.svg"></div>
+    </div>
+    <div *ngIf="selectedGenre.length > 0" class="s-g-c">
+        <div class="all-genres-button">
+          <button *ngFor="let genresData of selectedGenre" class="btn btn-genres {{ selectedGenre.indexOf(genresData) !== -1 ? 'selected' : '' }}" >{{ getgenreslabel(genresData) }}</button>
+        </div>
+    </div>
+</div>
+
+<!--notofication section-->
+<!-- <div class="notifi-setting-section">
+  <div class="noti-setting-header">
+    <div class="s-title">{{"header_notification" | translate}}</div>
+    <div class="s-n-des">{{"prowrit_ntfctnstmt" | translate}}</div>
+  </div>
+  <div class="noti-s-t-c">
+    <div class="noti-setting-toggle-content">
+      <div class="n-s-c">{{"prowrit_ntfctnstmt1" | translate}}</div>
+      <div class="n-s-t">
+          <label class="switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+          </label>
+      </div>
+    </div>
+    <div class="noti-setting-toggle-content">
+        <div class="n-s-c">{{"prowrit_ntfctnstmt2" | translate}}</div>
+        <div class="n-s-t">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+    <div class="noti-setting-toggle-content">
+        <div class="n-s-c">{{"prowrit_ntfctnstmt3" | translate}}</div>
+        <div class="n-s-t">
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+    <div class="noti-setting-toggle-content">
+        <div class="n-s-c">{{"prowrit_ntfctnstmt4" | translate}}</div>
+        <div class="n-s-t">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+    <div class="noti-setting-toggle-content">
+        <div class="n-s-c">{{"prowrit_ntfctnstmt5" | translate}}</div>
+        <div class="n-s-t">
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+    <div class="noti-setting-toggle-content">
+        <div class="n-s-c">{{"prowrit_ntfctnstmt6" | translate}}</div>
+        <div class="n-s-t">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+    <div class="noti-setting-toggle-content">
+        <div class="n-s-c">{{"prowrit_ntfctnstmt7" | translate}}</div>
+        <div class="n-s-t">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+  </div>
+
+</div> -->
+
+<ng-template #filterpopup>
+    <div class="logo">Kahaniya</div>
+    <div class="modal-header filter-header">
+      <h4 class="modal-title pull-left">{{ 'home_chooseyourfavoritegenre' | translate }}</h4>
+    </div>
+    <div class="modal-body write-popup-content filter-popup-content">
+      <div class="main-popup-section">
+        <div class="language-select">
+          <div class="col-md-3 language-select-section" *ngFor="let genresData of globalservice.allGenres">
+            <button class="btn btn-primary btn-lang {{ selectedGenre.indexOf(genresData.id) !== -1 ? 'selected' : '' }} " (click)="genreClick(genresData)">{{ genresData.title }}<i class="fa fa-close"></i></button>
+          </div>
+        </div>
+        <div class="button-section">
+          <button type="button" class="popup-save-btn" (click)="saveGenre()">{{ 'save' | translate }}</button>
+          <button type="button" class="close popup-close-btn" aria-label="Close" (click)="modalRef.hide()">{{ 'close' | translate }}</button>
+
+        </div>
+      </div>
+    </div>
+</ng-template>

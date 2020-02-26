@@ -1,0 +1,85 @@
+/*series tab slider*/
+.story-name {
+   font-family: 'manrope';
+   font-weight: 700;
+   color: #3E3E3E;
+   font-size: 1.25VW;
+   line-height: 2.187vw;
+   margin-right: 1.098vw;
+   width: calc(100% - 2.1961vw);
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+.story-count span {
+   font-family: 'manrope';
+   color: #3E3E3E;
+   font-weight: 500;
+   font-size: 0.833vw;
+}
+.episodes {
+   font-family: 'manrope';
+   color: rgba(62, 62, 62, 0.70);
+   font-weight: 500;
+   font-size: 0.833vw;
+}
+.writer-img img {
+   width: 3.125VW !important;
+   height: 3.125VW;
+}
+.write-name-des h6 {
+   color: #3E3E3E;
+   font-family: 'manrope';
+   font-weight: 600;
+   font-size: 0.9375VW;
+   line-height: 1.614vw;
+   margin-bottom: 0;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 1;
+   width: 95px;
+
+}
+.write-name-des p {
+   font-size: 0.83333vw;
+   font-family: 'manrope';
+   font-weight: normal;
+   color: #3E3E3E;
+   line-height: 1.406vw;
+   margin-bottom: 0;
+}
+.story-count img {
+   width: 0.729vw !important;
+   height: 0.729vw;
+   margin-right: 0.417vw;
+}
+.writer-img-name {
+   display: flex;
+   align-items: center;
+   padding-top: 0.6VW;
+}
+.write-name-des {
+   padding-left: 0.885vw;
+}
+.story-name-count-sec {
+   display: flex;
+}
+.story-count {
+   display: flex;
+   align-items: center;
+}
+.tab-image-content {
+   padding-top: 0.9375vw;
+
+}
+/* img.tab-image {
+   width: 11.1458vw;
+   height: 11.1458vw;
+} */
+img.tab-image {
+   width: 100% !important;
+   height: auto;
+}
+

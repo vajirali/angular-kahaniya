@@ -1,0 +1,228 @@
+<span *ngIf="!seriesData" class="detail-page-loader"><img src="../../assets/images/loader.gif"></span>
+<!--middle section-->
+<div class="preface-section">
+  <div class="preface-bg-content">
+      <div  [className]= "startwrite ? 'startwrite open' : 'startwrite close-menu'">
+        <div class="inner-content-section">
+          <div class="inner-left">
+            <div class="subscribe-section">
+              <input type="file" id="file-input" class="inner-file-input" #file accept='image/*' (change)="preview($event,file.files)">
+            <img  class="seriescreate" src="../../assets/images/draft-placeholder.svg"  *ngIf="!imgURL">
+              <img class="seriescreate" [src]="imgURL"  *ngIf="imgURL">
+              <img class="profile-w-edit" src="../../assets/images/profil-edit.svg">
+              <div *ngIf="seriesData" class="subscribe-content">
+                <div class="total-subscribe-sec">
+                  <img src="../../assets/images/subscription.svg" >
+                  <span>{{seriesData.subscribers}} {{'subscribers' | translate}}</span>
+                </div>
+              </div>
+            </div>
+            <!--left genre list section-->
+            <div class="genre-list-section" *ngIf="seriesData">
+                <div class="genre-list-header">Genre</div>
+                <div class="genre-list-content">
+                    <Select class="detail-edit minimal" [disabled]="inactive" name="gender" (change)="onChange($event.target.value)">
+                        <option value="{{ genre.id }}" [selected]="seriesData.genre_data.id == genre.id" *ngFor="let genre of genresCollection;">{{ genre.title }}</option>
+                    </Select>
+                </div>
+            </div>
+            <!--end-->
+            <div class="episode-section">
+              <div class="episode-header">{{"episodes" | translate}}</div>
+              <div class="episode-content">
+                  <div class="episode-num-name episode-list" *ngIf="seriesData">
+                    <div class="episode-num" *ngFor="let episode of seriesData.stories;let i = index">
+                      <div class="e-no">{{ i+1 }}</div>
+                      <div class="e-name">{{"episode" | translate}} {{ i+1 }}</div>
+                      <a routerLink="/preface/{{ kahaniid }}/{{ episode.id }}">
+                        <img class="episode-profile-w-edit" src="../../assets/images/eidt.svg">
+                      </a>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="inner-middle">
+            <div class="main-writing-section">
+                <div class="story-header">
+                    <div class="st-hd-left">
+                      <div class="story-name">
+                        <input type="text" name="title" [(ngModel)]="story_title" name="story-title">
+                      </div>
+                        <div class="writer-name">
+                          <input type="text" name="tagline"[(ngModel)]="tag_line" name="tag_line" >
+                        </div>
+                    </div>
+                    <div class="st-hd-right" (click) ="dotopen()">
+                      <img src="../../assets/images/three-dots.svg">
+                    </div>
+                    <div  [className]= "dotmenu ? 'dotmenu open' : 'dotmenu close-menu'">
+                        <div class="edit-share-sec">
+                          <div class="edit-sec">
+                            <img src="../../assets/images/eidt.svg"><span>{{'edit' | translate}}</span>
+                          </div>
+                          <div class="share-sec">
+                              <img src="../../assets/images/share.svg"><span>{{'share' | translate}}</span>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-review-share-zoom-section">
+                    <div class="view-review-section">
+                      <div class="story-view">
+                        <img src="../../assets/images/eye.svg">
+                        <span>0 {{'views' | translate}}</span>
+                      </div>
+                      <div class="story-review">
+                          <img src="../../assets/images/star-no-selected.svg">
+                          <span>0 {{'reviews' | translate}}</span>
+                      </div>
+                    </div>
+                    <div class="add-episode" (click) ="addepisode()">
+                      <p>{{'addnewepisode' | translate}}</p>
+                    </div>
+                </div>
+                <form [formGroup]="editorForm">
+                  <div class="story-writting-section">
+                      <quill-editor format="object" [(ngModel)]="content" [styles]="editorStyle" [modules]="config"  theme="bubble" formControlName="editor" (onContentChanged)="richTextEditorChange($event)" placeholder="{{'startwritingyourprefacehere' | translate}}"></quill-editor>
+                  </div>
+                  <button (click)="onSubmit()" class="btn btn-primary btn-start-reading">{{'savepreface' | translate}}</button>
+                </form>
+                <p class="note-s">{{'noteaddnewchapterbyclickingaddbuttonontoprightcorner' | translate}}</p>
+            </div>
+          </div>
+          <div *ngIf="seriesData" class="inner-right">
+            <div class="right-author-section">
+              <div class="i-right-content">
+                <div class="i-bg-right"><img src="../../assets/images/story-p-right-bg.png"></div>
+                <div class="i-content">
+                    <img default="{{ globalservice.dummyuser }}" src={{seriesData.author.image}}>
+                    <div class="i-auth-name">{{seriesData.author.full_name}}</div>
+                    <div class="i-auth-des">{{seriesData.author.biography}}</div>
+                    <div class="follow-writing-section">
+                      <div class="followers-section">
+                        <div class="followers-count">{{seriesData.author.followers}}</div>
+                        <div class="f-name">{{'prowrit_followers' | translate}}</div>
+                      </div>
+                      <div class="writing-section">
+                        <div class="writing-count">{{seriesData.author.writings}}</div>
+                        <div class="w-name">{{'prowrit_writtings' | translate}}</div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <app-card-payment></app-card-payment>
+          </div>
+        </div>
+      </div>
+      <div  [className]= "addepisec ? 'addepisec open' : 'addepisec close-menu'">
+        <div class="add-episode-inner-sec">
+            <div class="inner-left">
+                <div class="cover-section">
+                    <input type="file" id="file-input" class="inner-file-input" #file accept='image/*' (change)="addpreview($event, file.files)">
+                    <div *ngIf="!editEpisode">
+                      <img class="seriescreate" src="../../assets/images/draft-placeholder.svg" *ngIf="!imgURL">
+                      <img class="seriescreate" [src]="imgURL"  *ngIf="imgURL">
+                    </div>
+
+                    <div *ngIf="editEpisode">
+                      <img class="seriescreate" src="../../assets/images/draft-placeholder.svg" *ngIf="!epimgURL">
+                      <img class="seriescreate" [src]="epimgURL"  *ngIf="epimgURL">
+                    </div>
+                    <img class="profile-w-edit" src="../../assets/images/profil-edit.svg">
+                </div>
+                <div class="episode-section">
+                    <div class="episode-header">{{"episodes" | translate}}
+                      <span *ngIf="editEpisode" (click)="addnewEpisode()">{{"addnew" | translate}}</span>
+                      <span *ngIf="!editEpisode && episodeId != undefined" (click)="backToseries()">{{"Back" | translate}}</span>
+                    </div>
+                    <div class="episode-content">
+                        <div class="episode-num-name episode-list" *ngIf="seriesData">
+                          <div class="episode-num" *ngFor="let episode of seriesData.stories;let i = index">
+                            <div class="e-no">{{ i+1 }}</div>
+                            <div class="e-name">{{"episode" | translate}} {{ i+1 }}</div>
+                            <a routerLink="/preface/{{ kahaniid }}/{{ episode.id }}">
+                              <img class="episode-profile-w-edit" src="../../assets/images/eidt.svg">
+                            </a>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inner-middle">
+                <div class="main-writing-section">
+                    <div class="st-hd-left" *ngIf="seriesData">
+                        <div class="story-name">
+                          <input type="text" placeholder="Episode {{ seriesData.stories.length+1 }}" [(ngModel)]="estory_title" name="estory-title" *ngIf="!editEpisode">
+                          <input type="text" placeholder="Episode title" [(ngModel)]="estory_title" name="estory-title" *ngIf="editEpisode">
+                        </div>
+                        <div class="writer-name">
+                          <input type="text" placeholder="Episode {{ seriesData.stories.length+1 }} Tag line" [(ngModel)]="etag_line" name="etag_line" *ngIf="!editEpisode">
+                          <input type="text" placeholder="Episode tagline" [(ngModel)]="etag_line" name="etag_line" *ngIf="editEpisode">
+                        </div>
+                    </div>
+                    <div class="episode-writting-section">
+                       <div class="story-writting-section">
+                            <quill-editor format="object" [(ngModel)]="episodecontent" [styles]="editorStyle" [modules]="config"  theme="bubble" (onContentChanged)="richTextEditorChange2($event)" placeholder="{{'startwritingyourstoryhere' | translate}}"></quill-editor>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inner-right">
+                <div class="right-draft-content">
+                  <div class="draft-header">
+                      {{'prefacedrafthistory' | translate}}
+                  </div>
+                  <div class="draft-content">
+                    <img src="../../assets/images/middle-no-review.svg">
+                    <p>{{'prefacenodrafthistoryyet' | translate}}</p>
+                  </div>
+                </div>
+               <app-card-payment></app-card-payment>
+            </div>
+            <div class="sticky-button-section">
+                <button class="btn-publish" *ngIf="!editEpisode" (click)="paymentModal(paymentpopup)">{{'publish' | translate}}</button>
+                <!-- <button class="btn-publish btn-draft" *ngIf="!editEpisode">{{'draft' | translate}}</button> -->
+
+                <button class="btn-publish" *ngIf="editEpisode" (click)="updateEpisode()" >{{'Save' | translate}}</button>
+                <button class="btn-publish btn-draft" *ngIf="editEpisode" (click)="backToseries()" >{{'back' | translate}}</button>
+
+            </div>
+        </div>
+      </div>
+
+  </div>
+</div>
+<!--end-->
+<ng-template #paymentpopup>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Payment Details</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()"><i class="fa fa-times" aria-hidden="true"></i></button>
+    </div>
+    <div class="modal-body write-popup-content">
+      <form class="payment-form">
+          <div class="p-p-title">Do users have to pay for this story?</div>
+          <div class="enter-coin">
+            <label class="cu-rdo" >Yes
+              <input type="radio" name="radio" (click)="checkOption('yes')">
+              <span class="rdo-checkmark"></span>
+            </label>
+            <div class="coin-text" *ngIf="coinSection">
+              <input type="text" name="coin" [(ngModel)]="totalcoin" placeholder="Enter Coin for Story">
+              <button class="btn btn-primary" [disabled]="!totalcoin" (click)="publish()">Save</button>
+            </div>
+          </div>
+
+          <label class="cu-rdo">No
+              <input type="radio" name="radio" (click)="checkOption('no')">
+              <span class="rdo-checkmark"></span>
+          </label>
+      </form>
+      <div class="term-conditions">
+          TERMS AND CONDITIONS
+      </div>
+    </div>
+</ng-template>
+<!--end-->

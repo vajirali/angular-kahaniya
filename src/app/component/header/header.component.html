@@ -1,0 +1,144 @@
+<header>
+  <div class="top-header" cdkScrollable >
+    <div class="custom-container">
+      <div class="left-hd-section">
+        <div class="main-logo">
+         <a routerLink="/home">{{ 'kahaniya' | translate }}</a>
+        </div>
+        <!-- <a *ngIf="authservice.isLogin" routerLink="/writestory"> -->
+          <div *ngIf="showextraheader">
+            <div class="write-hd-section" *ngIf="authservice.isLogin" (click)="writeModal(writepopup)">
+                <span><img src="../../assets/images/write-header.svg">{{ 'header_write' | translate }}</span>
+            </div>
+          </div>
+
+        <!-- </a> -->
+        <a *ngIf="!authservice.isLogin" (click)="loginModal(loginpopup)">
+          <div class="write-hd-section" *ngIf="showextraheader">
+              <span><img src="../../assets/images/write-header.svg">{{ 'header_write' | translate }}</span>
+          </div>
+        </a>
+      </div>
+      <div class="middle-hd-section">
+        <input type="text" *ngIf="showextraheader" [(ngModel)]="headerSearch" name="search"  placeholder="{{ 'header_searchtext' | translate }}" (keyup.enter)="search()"/><i class="fa fa-search" *ngIf="showextraheader" (click)="search()"></i>
+      </div>
+      <div class="right-hd-section">
+        <div class="side-menu">
+          <div class="language-section" (click)="languageModal(languagepopup)">
+              <i class="fa fa-language"></i><span>{{ globalservice.languageCombo[globalservice.displayLanguage] }}</span>
+          </div>
+          <div  *ngIf="authservice.isLogin" clickOutside (clickOutside)="opened = !opened" class="notification-section" (click) ="popupopen()">
+              <img src="../../assets/images/bell.svg" alt="lang" />
+          </div>
+          <div class="profile-section" *ngIf="authservice.isLogin">
+              <img default="{{ globalservice.dummyuser }}" src="{{authservice.currentUserData.image}}" routerLink="/my-profile" alt="profile" />
+          </div>
+          <div class="login-sec" (click)="loginModal(loginpopup)" *ngIf="!authservice.isLogin">{{ 'login' | translate }}</div>
+          <div  *ngIf="authservice.isLogin"  [className]="globalservice.clickPopUpNotification ? 'clickPopUp open' : 'clickPopUp close-pop'">
+              <div class="notification-section-pop">
+                <div class="noti-header">
+                  <div class="title">{{ 'header_notification' | translate }}</div>
+                  <div routerLink="/my-profile/setting" class="setting"><i class="fa fa-gear"></i></div>
+                </div>
+                <div class="noti-content-section">
+                  <!--repeated section-->
+                  <div *ngIf="notificationsData.length > 0">
+                    <div class="noti-content" *ngFor="let ndata of notificationsData;let i = index">
+                      <div class="content-description">
+                        <div class="col-md-2">
+                          <img default="{{ globalservice.dummyuser }}" src="{{ ndata.actor.image }}">
+                        </div>
+                        <div class="col-md-10">
+                          <div class="noti-des" *ngIf="ndata.verb == 'comment'"><a routerLink="/u/{{ ndata.actor.id }}">{{ ndata.actor.full_name }}</a> {{ 'wroteacommenton' | translate }} <a routerLink="/story/{{ ndata.subject_data.id }}">{{ ndata.subject_data.title }}</a> {{ 'story' | translate }}.</div>
+
+                          <div class="noti-des" *ngIf="ndata.verb == 'review'"><a routerLink="/u/{{ ndata.actor.id }}">{{ ndata.actor.full_name }}</a> {{ 'wroteareviewon' | translate }} <a routerLink="/series/{{ ndata.subject_data.id }}">{{ ndata.subject_data.title }}</a> {{ 'story' | translate }}.</div>
+
+                          <div class="noti-des" *ngIf="ndata.verb == 'follow'"><a routerLink="/u/{{ ndata.actor.id }}">{{ ndata.actor.full_name }}</a> {{ 'hasstartedfolowingyouonkahaniya' | translate }}</div>
+
+                          <div class="noti-des" *ngIf="ndata.verb == 'subscribe'"><a routerLink="/u/{{ ndata.actor.id }}">{{ ndata.actor.full_name }}</a> {{ 'hassubscribedtoyourseries' | translate }} <a routerLink="/series/{{ ndata.subject_data.id }}">{{ ndata.subject_data.title }}</a>.</div>
+
+                          <div class="time-date">at {{ ndata.created_at | date:'h:mm a' }}  on {{ ndata.created_at | date:'d MMMM, y' }}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="noti-content" *ngIf="notificationsData.length == 0">
+                    <span>No Pending Notifications.</span>
+                  </div>
+                  <!--repeated section-->
+
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<ng-template #languagepopup>
+  <div class="logo">Kahaniya</div>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{ 'header_chooseyourreadinglanguage' | translate }}</h4>
+  </div>
+  <div class="modal-body write-popup-content">
+      <p>{{ 'header_youwillbeshowncontentbasedonselectedlangauge' | translate }}</p>
+    <div class="main-popup-section">
+      <div class="language-select">
+        <div *ngFor="let langaugesData of globalservice.allLanguages" class="col-md-3 language-select-section">
+            <button class="btn btn-primary btn-lang {{langaugesData.slug === globalservice.displayTempLanguage ? 'selected' : ''}} " (click)="listClick(langaugesData)" >{{ globalservice.languageCombo[langaugesData.slug] }}<i class="fa fa-close"></i></button>
+        </div>
+      </div>
+      <div class="check-language">
+        <input type="checkbox" value="checked" [(ngModel)]="is_checked" class="checkmark" name="translate" />
+        <label>Translate the entire website into <span>{{ globalservice.languageCombo[globalservice.displayTempLanguage] }}</span></label>
+      </div>
+      <div class="button-section">
+        <button type="button" (click)="saveLanguage()" class="popup-save-btn">{{ 'save' | translate }}</button>
+        <button type="button" class="close popup-close-btn" aria-label="Close" (click)="modalRef.hide()">{{ 'close' | translate }}</button>
+
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #loginpopup>
+    <app-signupmodal (loginModelClose)="loginModelCloseEmit()" >
+</app-signupmodal>
+
+</ng-template>
+
+<ng-template #writepopup>
+  <div class="logo">{{ 'kahaniya' | translate }}</div>
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{ 'pickacategorytowriteyourstory' | translate }}</h4>
+</div>
+<div class="modal-body write-popup-content">
+  <div class="main-popup-section">
+        <a *ngIf="authservice.isLogin" (click)="WriteSelection($event,'series')">
+          <div class="col-md-6 write-type-section first">
+            <div class="write-type-title">{{ 'hometab_series' | translate }}</div>
+            <div class="write-type-des">Description about what series is and how it is written given by the admin. Payment structures for the writers who write can also be given.</div>
+            <button class="btn btn-primary" (click)="watchVideo('https://www.youtube.com/watch?v=gXvaKMEtIFY')">{{ 'watchvideo' | translate }}</button>
+          </div>
+        </a>
+        <a *ngIf="authservice.isLogin" (click)="WriteSelection($event,'story')">
+          <div class="col-md-6 write-type-section">
+              <div class="write-type-title">{{ 'story' | translate }}</div>
+              <div class="write-type-des">Description about what series is and how it is written given by the admin. Payment structures for the writers who write can also be given.</div>
+              <button class="btn btn-primary"  (click)="watchVideo('https://www.youtube.com/watch?v=YGsByXgA-xQ')">{{ 'watchvideo' | translate }}</button>
+          </div>
+        </a>
+        <a *ngIf="authservice.isLogin" (click)="WriteSelection($event,'nano')">
+          <div class="col-md-6 write-type-section">
+            <div class="write-type-title">{{ 'nanostory' | translate }}</div>
+            <div class="write-type-des">Description about what series is and how it is written given by the admin. Payment structures for the writers who write can also be given.</div>
+            <button class="btn btn-primary" (click)="watchVideo('https://www.youtube.com/watch?v=qmuIzwkaYDM')">{{ 'watchvideo' | translate }}</button>
+          </div>
+        </a>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="close pull-right btn btn-primary popup-close-btn" aria-label="Close" (click)="modalRef.hide()">{{ 'close' | translate }}</button>
+</div>
+</ng-template>

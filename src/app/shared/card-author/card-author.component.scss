@@ -1,0 +1,121 @@
+/*auth-slider css start*/
+.auhtor-slider {
+   padding-left: 9.11vw;
+   padding-right: 9.11vw;
+}
+.popular-author-section {
+   padding-top: 7.510vw;
+   padding-bottom:4.468vw;
+}
+.auth-titllebar {
+   display: inline-block;
+   width: 100%;
+   padding-bottom: 3.385vw;
+}
+.auth-title {
+   height: 3.3854vw;
+   background: #3E3E3E;
+   color: #fff;
+   border-radius: 0 0.732vw 0.732vw 0;
+   width: 25.104vw;
+   text-align: center;
+   justify-content: center;
+   display: inline-flex;
+   align-items: center;
+   font-size: 0.9375VW;
+   font-family: 'manrope';
+   font-weight: 600;
+}
+.all-auth {
+   float: right;
+   padding-right: 9.11vw;
+   font-family: 'manrope';
+   font-weight: 600;
+   font-size: 0.9375VW;
+   color: #43A047;
+   line-height:3.5vw;
+   cursor: pointer;
+   text-transform: uppercase;
+}
+img.auth-img {
+   width: 6.6145vw !important;
+   height: 6.6145vw;
+   border-radius: 50%;
+   margin: 0 auto;
+   box-shadow: 0px 0.219vw 0.439vw rgba(0, 0, 0, 0.16);
+}
+.custom-auth {
+   position: relative;
+   height: 24.9166vw;
+   background: #fff;
+   box-shadow: 0 0.219vw 0.658vw rgba(0, 0, 0, 0.3);
+   cursor: pointer;
+   margin: 2px;
+}
+.auth-image-content {
+   position: absolute;
+   top: 15%;
+   width: 100%;
+   text-align: center;
+   height: 82%;
+}
+.auth-name {
+   padding-top: 0.6770vw;
+   font-family: 'manrope';
+   font-weight: 600;
+   color: #3E3E3E;
+   font-size: 1.0416vw;
+   padding-bottom: 0.6770vw;
+}
+.auth-des {
+   font-family: 'manrope';
+   color: #3E3E3E;
+   font-weight: normal;
+   font-size: 0.729vw;
+   line-height: 1.1979vw;
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 1;
+   margin-bottom: 1.145vw;
+   padding: 0 20px;
+   height:20px;
+   -webkit-box-orient: vertical !important;
+   
+}
+.follow-writing-section {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding-bottom: 1.25VW;
+}
+.followers-section {
+   padding-right: 1.875VW;
+   border-right: 0.0732vw solid rgba(62, 62, 62, 0.20);
+}
+.followers-count,.writing-count {
+   font-family: 'manrope';
+   color: #43A047;
+   font-weight: 700;
+   font-size: 1.04166vw;
+   line-height: 2vw;
+}
+.f-name,.w-name {
+   font-family: 'manrope';
+   font-weight: normal;
+   color: #3E3E3E;
+   font-size: 0.833vw;
+   line-height: 1.197vw;
+}
+.writing-section {
+   padding-left: 1.875VW;
+}
+.auth-image-content button.btn.btn-primary.btn-follow {
+   font-family: 'manrope';
+   font-weight: 600;
+   line-height: 1.197vw;
+   padding: 0.625VW 3.1vw;
+   margin-bottom: 1.3541vw;
+}
+img.auth-image {
+   height: 6.6764vw!important;
+}

@@ -1,0 +1,61 @@
+<!-- <span *ngIf="!seriesData" class="detail-page-loader"><img src="../../assets/images/loader.gif"></span> -->
+<div class="write-story">
+<div class="add-episode-inner-sec">
+  <div class="inner-left">
+      <div class="cover-section">
+          <div class="story-image">
+              <input type="file" id="file-input" class="inner-file-input"  #file accept='image/*' (change)="preview($event, file.files)">
+            <img src="../../assets/images/fiction-story-left.png"  *ngIf="!imgURL">
+            <img [src]="imgURL"  default="{{ globalservice.dummyImage}}" *ngIf="imgURL">
+            <img class="profile-w-edit" src="../../assets/images/profil-edit.svg">
+          </div>
+          <!-- <div class="placeholder-secion">
+            <img src="../../assets/images/picture.svg">
+            <p>Add a cover image</p>
+          </div> -->
+      </div>
+      <!--left genre list section-->
+      <div class="genre-list-section" *ngIf="seriesData">
+          <div class="genre-list-header">Genre</div>
+          <div class="genre-list-content">
+              <Select class="detail-edit minimal" [disabled]="inactive" name="gender" (change)="onChange($event.target.value)">
+                <option value="{{ genre.id }}" [selected]="seriesData.genre_data.id == genre.id" *ngFor="let genre of genresCollection;">{{ genre.title }}</option>
+              </Select>
+          </div>
+      </div>
+      <!--end-->
+  </div>
+  <div class="inner-middle">
+      <div class="main-writing-section">
+          <div class="story-header">
+            <div class="story-name"><input type="text" name="title" [(ngModel)]="story_title" name="story-title"></div>
+            <div class="writer-name"><input type="text" name="tagline"[(ngModel)]="tag_line" name="tag_line" ></div>
+          </div>
+          <div class="episode-writting-section">
+            <div class="story-writting-section">
+                <form [formGroup]="editorForm">
+                <quill-editor format="object" [(ngModel)]="content" formControlName="editor" [styles]="editorStyle" [modules]="config"  theme="bubble" (onContentChanged)="richTextEditorChange($event)" placeholder="{{'startwritingyourstoryhere' | translate}}"></quill-editor>
+                </form>
+            </div>
+          </div>
+      </div>
+  </div>
+  <div class="inner-right">
+      <div class="right-draft-content">
+        <div class="draft-header">
+            {{'prefacedrafthistory' | translate}}
+        </div>
+        <div class="draft-content">
+          <img src="../../assets/images/middle-no-review.svg">
+          <p>{{'prefacenodrafthistoryyet' | translate}}</p>
+        </div>
+      </div>
+      <app-card-payment></app-card-payment>
+  </div>
+  <div class="sticky-button-section">
+
+        <button class="btn-publish" (click)="onSubmit()">{{'publish' | translate}}</button>
+        <!-- <button class="btn-publish btn-draft">{{'draft' | translate}}</button> -->
+  </div>
+</div>
+</div>

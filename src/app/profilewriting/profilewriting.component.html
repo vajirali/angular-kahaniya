@@ -1,0 +1,108 @@
+<!--middle section-->
+<div class="profile-writting-section">
+  <div class="profile-w-header"></div>
+  <div class="profile-w-content">
+      <div class="profile-w-content-left">
+        <form *ngIf="authservice.currentUserData" class="edit-profile">
+          <div class="edit-profile-sec">
+            <div class="profile-w-image-sec">
+              <input type="file" class="inner-file-input" [disabled]="inactive" #file accept='image/*' (change)="preview(file.files)">
+              <img default="{{ globalservice.dummyuser }}" *ngIf="!imgURL" src="{{authservice.currentUserData.image}}">
+             <img [src]="imgURL" *ngIf="imgURL">
+              <img class="profile-w-edit" src="../../assets/images/profil-edit.svg">
+            </div>
+            <div class="profile-w-des">
+              <div class="p-w-n"><input type="text" [className]="inactive ? 'edt-bg' : 'edt-bg edit-flied'" [disabled]="inactive" [(ngModel)]="full_name" name="full_name"></div>
+              <div class="p-w-d"><textarea type="text" [className]="inactive ? 'p-w-d' : 'p-w-d edit-flied'" [disabled]="inactive" [(ngModel)]="biography" name="biography"></textarea></div>
+            </div>
+            <div class="social-couunt-follow-sec">
+              <div class="p-followers-sec">
+                <h6>{{authservice.currentUserData.followers}}</h6>
+                <p>{{"prowrit_followers" | translate}}</p>
+              </div>
+              <div class="p-writting-sec">
+                <h6>{{authservice.currentUserData.writings}}</h6>
+                <p>{{"prowrit_writtings" | translate}}</p>
+              </div>
+              <div class="p-following-sec">
+                <h6>{{authservice.currentUserData.followings}}</h6>
+                <p>{{"prowrit_followings" | translate}}</p>
+              </div>
+            </div>
+            <div class="call-birthday-email-sec">
+              <div [className]="inactive ? 'call-sec' : 'call-sec edit-flied'">
+                <img class="call-img" src="../../assets/images/call.svg">
+                <input type="text" class="detail-edit" [disabled]="inactive" [(ngModel)]="phone" name="phone">
+                <img class="lock-img" src="../../assets/images/lock.svg">
+              </div>
+              <div [className]="inactive ? 'call-sec' : 'call-sec edit-flied'">
+                <img class="email-img" src="../../assets/images/mail.svg">
+                <input type="text" class="detail-edit" [disabled]="inactive" [(ngModel)]="email" name="email">
+                <img class="lock-img" src="../../assets/images/lock.svg">
+              </div>
+              <div [className]="inactive ? 'call-sec' : 'call-sec edit-flied'">
+                <img class="birth-img" src="../../assets/images/birthday.svg">
+                <input type="text" readonly placeholder="Datepicker" class="form-control detail-edit" [maxDate]="maxDate" [disabled]="inactive" [(ngModel)]="date_of_birth" name="date_of_birth" bsDatepicker [bsConfig]="{dateInputFormat: 'D-MM-Y'}">
+                <!-- <input type="text" class="detail-edit" [disabled]="inactive" placeholder="19/04/1998"> -->
+              </div>
+              <div [className]="inactive ? 'call-sec' : 'call-sec edit-flied'">
+                <img class="gen-img" src="../../assets/images/gender.svg">
+                <Select class="detail-edit minimal" [disabled]="inactive" name="gender" (change)="changeGender($event.target.value)">
+                  <option value="male" [selected]="gender == 'male'">Male</option>
+                  <option value="female" [selected]="gender == 'female'">Female</option>
+                </Select>
+                <!-- <input type="text" class="detail-edit" [disabled]="inactive" placeholder="Female"> -->
+              </div>
+            </div>
+            <div class="bn" >
+              <button type="button" *ngIf="inactive" class="btn btn-primary btn-edit-profile" (click)="changeStatus(false)">{{"prowrit_editprofile" | translate}}</button>
+              <button type="button" *ngIf="!inactive" class="btn btn-primary btn-edit-profile" (click)="changeStatus(true)">Save Changes</button>
+            </div>
+          </div>
+       </form>
+        <div class="company-sec">
+          <div class="com-title">{{"company" | translate}}</div>
+          <div class="ab-co-tm">
+            <span>{{"aboutus" | translate}}</span>
+            <span>{{"team" | translate}}</span>
+            <span>{{"contactus" | translate}}</span>
+          </div>
+          <div class="com-title">{{"website" | translate}}</div>
+          <div class="ab-co-tm">
+            <span>{{"faqs" | translate}}</span>
+            <span>{{"purchaseandreturns" | translate}}</span>
+          </div>
+          <div class="com-title">{{"legal" | translate}}</div>
+          <div class="ab-co-tm">
+            <span>{{"termsofuse" | translate}}</span>
+            <span>{{"wrstrory_copyrights" | translate}}</span>
+            <span>{{"prowrit_privacypolicy" | translate}}</span>
+          </div>
+          <button class="btn-logout" (click)="logout()">{{"logout" | translate}}</button>
+        </div>
+      </div>
+      <div class="profile-w-content-right">
+        <div class="profile-w-tab-section">
+          <tabset #staticTabs>
+            <tab heading="{{'prowrit_writings' | translate}}" >
+              <app-tab-writting></app-tab-writting>
+            </tab>
+            <tab heading="{{'prowrit_coinbank' | translate}}">
+              <app-tab-coinbank></app-tab-coinbank>
+            </tab>
+            <!-- <tab heading="{{'prowrit_stats' | translate}}" >{{'nocontentavilable' | translate}}
+            </tab> -->
+            <tab heading="{{'prowrit_library' | translate}}">
+              <app-tab-library></app-tab-library>
+            </tab>
+            <tab heading="{{'prowrit_settings' | translate}}">
+              <div class="setting-section">
+                <app-tab-setting></app-tab-setting>
+              </div>
+            </tab>
+          </tabset>
+        </div>
+      </div>
+  </div>
+</div>
+

@@ -1,0 +1,115 @@
+<div class="writing-tab-content">
+  <!--draft section-->
+  <!-- <div class="draft-section">
+    <div class="w-tab-header-sec">
+      <div class="title-name">{{'drafts' | translate}}</div>
+      <div class="view-all">{{'viewall' | translate}}</div>
+    </div>
+    <div class="draft-content">
+      <div class="d-c-s">
+
+        <img src="../../assets/images/profile-wrtie-draft-tab.png">
+        <div class="dr-title">Story Title</div>
+        <div class="dr-time">Last updated on June 29, 2019</div>
+      </div>
+      <div class="d-c-s">
+
+          <img src="../../assets/images/draft-placeholder.svg">
+          <div class="dr-title">Story Title 2</div>
+          <div class="dr-time">Last updated on June 29, 2019</div>
+      </div>
+    </div>
+  </div> -->
+  <!---schedule section-->
+  <!-- <div class="schedule-section">
+      <div class="w-tab-header-sec">
+          <div class="title-name">{{'scheduled' | translate}}</div>
+          <div class="view-all">{{'viewall' | translate}}</div>
+      </div>
+      <div class="draft-content">
+        <div class="d-c-s">
+          <img src="../../assets/images/schedule-img.png">
+          <div class="dr-title">Story Title</div>
+          <div class="dr-time">Scheduled to publish on 26 June, 2019</div>
+        </div>
+      </div>
+  </div> -->
+  <!---unmoderated section-->
+  <!-- <div class="unmoderated-section">
+    <div class="w-tab-header-sec">
+        <div class="title-name">{{'unmoderated' | translate}}</div>
+        <div class="view-all">{{'viewall' | translate}}</div>
+    </div>
+    <div class="nano-content-section-unmoderated">
+      <p class="c-des">Nobody knows me I'm cold, walk down this road all alone It's no one's fault but my own,
+      it's the path I've chosen to go, Frozen as snow I show no emotion whatsoever so, don't
+        ask me why I haven't done this yet, you're supernova and im a spavebound rocket ship</p>
+        <div class="nano-bottom">
+          <div class="nano-bottom-left">
+            <div class="n-b-img-sec">
+              <img src="../../assets/images/nano-bottom-img.png">
+            </div>
+            <div class="n-b-name-sec">
+              <p class="n-b-name">Shashank</p>
+              <p  class="n-b-sec">In Thriller</p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div> -->
+  <!---series section-->
+  <div class="series-section">
+      <div class="w-tab-header-sec">
+          <div class="title-name">{{'hometab_series' | translate}}</div>
+          <a routerLink="/all/series/{{userId}}">
+               <div class="view-all" *ngIf="data.kahanies_mineData.length > 4">{{'viewall' | translate}}</div>
+          </a>
+      </div>
+      <div class="no-record" *ngIf="data.kahanies_mineData.length == 0">
+          <div class="notview-all-record" >{{'norecord' | translate}}</div>
+      </div>
+      <div class="p-w-s-main">
+        <div class="profile-wrting-series-content" *ngFor="let series of data.kahanies_mineData; let i = index">
+        <div *ngIf="i < 4">
+            <app-card-inner-series [series]="series"></app-card-inner-series>
+        </div>
+        </div>
+      </div>
+  </div>
+  <!--stories section-->
+  <div class="stories-section">
+      <div class="w-tab-header-sec">
+          <div class="title-name">{{'hometab_stories' | translate}}</div>
+          <a routerLink="/all/stories/{{userId}}">
+                <div class="view-all"  *ngIf="data.stories_mineData.length > 4">{{'viewall' | translate}}</div>
+          </a>
+      </div>
+      <div class="no-record" *ngIf="data.stories_mineData.length == 0">
+          <div class="notview-all-record" >{{'norecord' | translate}}</div>
+      </div>
+      <div class="p-w-st-main">
+        <div class="profile-wrting-story-content" *ngFor="let stories of data.stories_mineData; let i = index">
+          <div *ngIf="i < 4">
+              <app-card-inner-stories [stories]="stories" ></app-card-inner-stories>
+          </div>
+        </div>
+      </div>
+  </div>
+  <!--nano stories section-->
+  <div class="naano-story-section">
+      <div class="w-tab-header-sec">
+          <div class="title-name">{{'hometab_nanos' | translate}}</div>
+          <a routerLink="/all/nanostory/{{userId}}">
+            <div class="view-all" *ngIf="data.nano_stories_mineData.length > 3">{{'viewall' | translate}}</div>
+          </a>
+      </div>
+      <div class="no-record" *ngIf="data.nano_stories_mineData.length == 0">
+          <div class="notview-all-record" >{{'norecord' | translate}}</div>
+      </div>
+      <div class="nano-content-section" *ngFor="let nanos of data.nano_stories_mineData; let i = index">
+        <div class="inner-nn" *ngIf="i < 3 ">
+            <app-card-nanostory [nanos]="nanos"></app-card-nanostory>
+        </div>
+      </div>
+  </div>
+</div>

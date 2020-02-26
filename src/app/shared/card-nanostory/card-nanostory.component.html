@@ -1,0 +1,63 @@
+<div class="nano-content-section">
+  <p class="c-des" [innerHTML]="getnanoData(nanos.content) | nl2br " *ngIf="authservice.isLogin" (click)="nanofilterModal(nanofilterpopup, nanos.content)"></p>
+  <p class="c-des" [innerHTML]="getnanoData(nanos.content) | nl2br " *ngIf="!authservice.isLogin" (click)="loginModal(loginpopup)"></p>
+    <div class="nano-bottom">
+      <div class="nano-bottom-left">
+        <div class="n-b-img-sec">
+          <img default="{{ globalservice.dummyuser }}" src="{{ nanos.author_image }}">
+        </div>
+        <div class="n-b-name-sec">
+          <p class="n-b-name">{{ nanos.author_full_name }}</p>
+          <p  class="n-b-sec">In {{ nanos.genre_title }}</p>
+        </div>
+      </div>
+      <div class="nano-bottom-right">
+        <div class="like-section">
+          <img src="../../assets/images/like.svg"><span>{{ nanos.all_likes }}</span>
+        </div>
+        <div class="unlike-section">
+          <img src="../../assets/images/unlike.svg"><span>{{ nanos.all_dislikes }}</span>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+<ng-template #nanofilterpopup>
+    <div class="modal-header nanofilter-header">
+      <div class="nano-bottom-left">
+        <div class="n-b-img-sec">
+          <img default="{{ globalservice.dummyuser }}" src="{{ nanos.author_image }}">
+        </div>
+        <div class="n-b-name-sec">
+            <p class="n-b-name">{{ nanos.author_full_name }}</p>
+            <p  class="n-b-sec">In {{ nanos.genre_title }}</p>
+        </div>
+      </div>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()"><i class="fa fa-times" aria-hidden="true"></i></button>
+    </div>
+    <div class="modal-body nano-filter-content-section">
+        <p class="nano-filter-f-des" [innerHTML]="getnanoData(selectedNanos)" ></p>
+        <div class="nano-filter-popoup-bottom">
+          <div class="total-like-unlike-section">
+            <div class="popup-like-section">
+                <img class="like-wofill" (click)="likefun(nanos.action,'like',nanos.id,nanos)" src="../../assets/images/like.svg" *ngIf="!nanos.action  || nanos.action == 0">
+                <img (click)="likefun(nanos.action,'like',nanos.id,nanos)" src="../../assets/images/like-fill.svg" *ngIf="nanos.action == 1"><span>{{ nanos.all_likes }}</span>
+            </div>
+            <div class="popup-like-section popup-unlike-section">
+                <img class="unlike-wofill" (click)="likefun(nanos.action,'dislike',nanos.id,nanos)" src="../../assets/images/unlike.svg" *ngIf="nanos.action == null || nanos.action == 1">
+                <img (click)="likefun(nanos.action,'dislike',nanos.id,nanos)" src="../../assets/images/unlike-fill.svg" *ngIf="nanos.action == 0"><span>{{ nanos.all_dislikes }}</span>
+            </div>
+          </div>
+          <div class="social-share-section">
+            <button class="btn-social"><img src="../../../assets/images/facebook-logo.svg">Share</button>
+            <button class="btn-social btn-tw"><img src="../../../assets/images/twitter-logo.svg">Share</button>
+          </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #loginpopup>
+  <app-signupmodal  (loginModelClose)="loginModelCloseEmit()" ></app-signupmodal>
+<ng-template>

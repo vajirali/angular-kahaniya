@@ -1,0 +1,73 @@
+<div class="search-result">
+      <!---series section-->
+
+      <div class="series-section" *ngIf="seriesCollectionCount > 0">
+                <div class="auth-titllebar">
+                <div class="auth-title">{{ 'resultsforseries' | translate }}: "{{query}}"</div>
+                <div class="w-tab-header-sec">
+                    <a routerLink="/all/search-series/{{query}}">
+                        <div class="view-all" *ngIf="seriesCollectionCount > 4">{{'viewall' | translate}}</div>
+                    </a>
+                </div>
+                <div class="no-record" *ngIf="seriesCollectionCount == 0">
+                    <div class="notview-all-record" >{{'norecord' | translate}}</div>
+                </div>
+            </div>
+            <div class="search-result-data">
+                <div class="p-w-s-main">
+                    <div class="profile-wrting-series-content" *ngFor="let series of seriesCollection; let i = index">
+                    <div *ngIf="i < 4">
+                        <app-card-series [series]="series"></app-card-series>
+                    </div>
+                    </div>
+                </div>
+            </div>
+      </div>
+      <!--stories section-->
+      <div class="stories-section" *ngIf="storiesCollectionCount > 0">
+          <div class="auth-titllebar">
+            <div class="auth-title">{{ 'resultsforstories' | translate }}: "{{query}}"</div>
+            <div class="w-tab-header-sec">
+                <a routerLink="/all/search-stories/{{query}}">
+                        <div class="view-all"  *ngIf="storiesCollectionCount > 4">{{'viewall' | translate}}</div>
+                </a>
+            </div>
+            <div class="no-record" *ngIf="storiesCollectionCount == 0">
+                <div class="notview-all-record" >{{'norecord' | translate}}</div>
+            </div>
+          </div>
+          <div class="search-result-data">
+            <div class="p-w-st-main">
+                <div class="profile-wrting-story-content" *ngFor="let stories of storiesCollection; let i = index">
+                <div *ngIf="i < 4">
+                    <app-card-stories [stories]="stories" ></app-card-stories>
+                </div>
+                </div>
+            </div>
+         </div>
+      </div>
+
+      <!--author section-->
+      <div class="author-section" *ngIf="authorsCollectionCount > 0">
+          <div class="auth-titllebar">
+            <div class="auth-title">{{ 'resultsforauthors' | translate }}: "{{query}}"</div>
+            <div class="w-tab-header-sec">
+                <a routerLink="/all/search-authors/{{query}}">
+                    <div class="view-all"  *ngIf="authorsCollectionCount > 3">{{'viewall' | translate}}</div>
+                </a>
+            </div>
+            <div class="no-record" *ngIf="authorsCollectionCount == 0">
+                <div class="notview-all-record" >{{'norecord' | translate}}</div>
+            </div>
+          </div>
+          <div class="search-result-data">
+            <div class="auhtor-slider-tab">
+                <div class="item" *ngFor="let author of authorsCollection;let i = index">
+                    <div *ngIf="i < 3">
+                        <app-card-author [author]="author"></app-card-author>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>
+</div>

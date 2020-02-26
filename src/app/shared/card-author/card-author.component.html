@@ -1,0 +1,28 @@
+<div class="custom-auth">
+  <img class="auth-image" src="{{ globalservice.userdummyImage }}">
+  <div class="auth-image-content">
+    <a routerLink="/u/{{ author.id }}">
+      <img class="auth-img" default="{{ globalservice.dummyuser }}" src="{{author.image}}" *ngIf="!authservice.isLogin" (click)="loginModal(loginpopup)">
+      <img class="auth-img" default="{{ globalservice.dummyuser }}" src="{{author.image}}" *ngIf="authservice.isLogin">
+    </a>
+    <div class="auth-name">{{author.full_name}}</div>
+    <div class="auth-des" [innerHTML]="author.biography"></div>
+    <div class="follow-writing-section">
+      <div class="followers-section">
+        <div class="followers-count">{{author.followers}}</div>
+        <div class="f-name">{{ 'prowrit_followers' | translate }}</div>
+      </div>
+      <div class="writing-section">
+        <div class="writing-count">{{author.writings}}</div>
+        <div class="w-name">{{ 'prowrit_writtings' | translate }}</div>
+      </div>
+    </div>
+    <button [disabled]="author.id == userId" class="btn btn-primary btn-follow" *ngIf="authservice.isLogin" (click)="followAuthor(author.id)">{{ 'follow' | translate }}</button>
+    <button [disabled]="author.id == userId" class="btn btn-primary btn-follow" *ngIf="!authservice.isLogin" (click)="loginModal(loginpopup)" >{{ 'follow' | translate }}</button>
+  </div>
+</div>
+
+<ng-template #loginpopup>
+  <app-signupmodal  (loginModelClose)="loginModelCloseEmit()" >
+</app-signupmodal>
+<ng-template>

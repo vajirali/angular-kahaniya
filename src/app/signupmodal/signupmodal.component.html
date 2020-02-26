@@ -1,0 +1,122 @@
+<div bsModal #childModal="bs-modal">
+  <div class="modal-body login-popup-content">
+    <div class="popup-left-sec">
+      <div class="popup-logo">{{ 'kahaniya' | translate }}</div>
+      <button class="sign-up-btn" (click) ="loginpopupopen()"><span *ngIf="!loginPopup">{{ 'signup' | translate }}</span><span *ngIf="loginPopup">{{ 'login' | translate }}</span><i class="fa fa-chevron-right"></i></button>
+    </div>
+      <div [className]="loginPopup ? 'loginPopup closesecond' : 'loginPopup open'">
+        <div class="popup-right-sec">
+          <div class="sign-in-section">
+              <div class="signin-title">{{ 'signin' | translate }}</div>
+              <form class="login-form">
+                <div class="form-group mobile">
+                  <label>{{ 'mobilenumber' | translate }}<em>*</em></label>
+                  <input type="text" name="mobileno" value="" [(ngModel)]="mobileno">
+                </div>
+                <div class="form-group password">
+                    <label>{{ 'password' | translate }}<em>*</em></label>
+                    <input type="password" [(ngModel)]="p_password" name="password" value="" *ngIf="!passwordshow"><span (click)="ispasswordvisible(true)" *ngIf="!passwordshow"><img src="../../../assets/images/hide-eye.svg"></span>
+
+                    <input type="text" [(ngModel)]="p_password" name="password" value="" *ngIf="passwordshow"><span (click)="ispasswordvisible(false)" *ngIf="passwordshow"><img src="../../../assets/images/eye.svg"></span>
+                </div>
+                <div class="forgot-pw" (click)="forgotPopup()">{{ 'forgotpassword' | translate }}</div>
+                <a routerLink="/home"><button class="btn-submit" [disabled]="canLogin()" (click)="checkLogin()">{{ 'login' | translate }}</button></a>
+                <div class="or-sec">
+                  <p>{{ 'or' | translate }}<br>{{ 'loginusing' | translate }}</p><span  class="line"></span>
+                </div>
+                <div class="social-share-button-section">
+                    <button class="btn-sign-social btn-scoail-fb">
+                      <img src="../../../assets/images/facebook-logo.svg"><span>{{ 'facebook' | translate }}</span>
+                    </button>
+                    <button class="btn-sign-social btn-social-google">
+                        <img src="../../../assets/images/google.svg"><span>{{ 'google' | translate }}</span>
+                    </button>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
+      <!--sign up -->
+      <div [className]="signupPopup ? 'signupPopup open' : 'signupPopup close-pop'">
+        <div class="popup-right-sec" >
+          <div class="sign-in-section">
+              <div class="signin-title">{{ 'register' | translate }}</div>
+              <div [className]="signupfirstPopup ? 'signupfirstPopup open' : 'signupfirstPopup close-pop'">
+                <form class="reset-form">
+                    <div class="form-group mobile">
+                      <label>{{ 'enteryourmobilenumber' | translate }}<em>*</em></label>
+                      <input type="text" name="mobileno" value="" [(ngModel)]="mobilenumber" maxlength="10">
+                    </div>
+                    <button [disabled]="!mobilenumber" class="btn-signup-next" (click)="otpPopup()">{{ 'next' | translate }}</button>
+                </form>
+              </div>
+              <!--otp-form--->
+              <div [className]="signotpPopup ? 'signotpPopup open' : 'signotpPopup close-pop'">
+              <form id="signup-first-form">
+                  <div class="form-group f-name">
+                    <label>{{ 'name' | translate }}</label>
+                    <input type="text" name="firstname" value="" [(ngModel)]="sign_name">
+                  </div>
+                  <div class="form-group email">
+                    <label>{{ 'email' | translate }}</label>
+                    <input type="text" name="sign_email" value="" [(ngModel)]="sign_email">
+                  </div>
+                  <div class="form-group password">
+                      <label>{{ 'password' | translate }}</label>
+                      <input type="password" name="password" value="" *ngIf="!passwordshow" [(ngModel)]="sign_password"><span (click)="ispasswordvisible(true)" *ngIf="!passwordshow"><img src="../../../assets/images/hide-eye.svg"></span>
+                      <input type="text" name="password" value="" *ngIf="passwordshow" [(ngModel)]="sign_password"><span (click)="ispasswordvisible(false)" *ngIf="passwordshow"><img src="../../../assets/images/eye.svg"></span>
+                  </div>
+                  <div class="form-group f-name">
+                      <label>{{ 'enterotp' | translate }}</label>
+                      <input type="text" name="otpnum" [(ngModel)]="sign_otp">
+                  </div>
+                  <button class="btn-signup-submit" (click)="saveSignupData()">{{ 'submit' | translate }}</button>
+                </form>
+              </div>
+          </div>
+        </div>
+      </div>
+      <!--forgot password -->
+      <div [className]="resignupPopup ? 'resignupPopup open' : 'resignupPopup close-pop'">
+        <div class="popup-right-sec reset-passwod-sec">
+
+              <div [className]="resetPopup ? 'resetPopup open' : 'resetPopup close-pop'">
+                <div class="sign-in-section-re">
+                  <div class="signin-title">{{ 'resetpassword' | translate }}</div>
+                  <form class="reset-form">
+                    <div class="form-group mobile">
+                      <label>{{ 'enteryourmobilenumber' | translate }}<em>*</em></label>
+                      <input type="text" name="mobileno" value="" [(ngModel)]="mobilenumber" maxlength="10">
+                      <div class="btn-sec">
+                        <button class="btn-signup-next btn-send" [disabled]="!mobilenumber" (click)="sendotpPopup()">{{ 'sendotp' | translate }}</button>
+                        <button class="btn-signup-next btn-ca" (click)="closepopup()">{{ 'cancel' | translate }}</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                </div>
+              <!--otp-form--->
+              <div [className]="fresendotpPopup ? 'fresendotpPopup open' : 'fresendotpPopup close-pop'">
+                <div class="popup-right-sec">
+                  <div class="sign-in-section-re">
+                    <form id="otp-form">
+                      <div class="otp-title">{{ 'wehavesentanotptothemobilenumber' | translate }} {{ mobilenumber }}</div>
+                      <div class="form-group f-name">
+                        <label>{{ 'submit' | translate }}</label>
+                        <input type="text" name="otpnum" [(ngModel)]="forgototp">
+                      </div>
+                      <div class="form-group f-name">
+                          <label>{{ 'enternewpassword' | translate }}</label>
+                          <input type="password" name="newpw" [(ngModel)]="newpassword" >
+                      </div>
+                      <button class="btn-signup-submit resend-submit" [disabled]="!newpassword" (click)="verifyforgotOtp()">{{ 'submit' | translate }}</button>
+                      <button class="btn-signup-next btn-ca" (click)="closepopup()">{{ 'cancel' | translate }}</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+        </div>
+      </div>
+  </div>
+</div>

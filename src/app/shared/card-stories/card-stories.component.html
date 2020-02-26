@@ -1,0 +1,23 @@
+<a routerLink="{{ userid && userid == stories.author_id ? '/createstory/'+stories.kahani_id : '/story/'+stories.title_id }}">
+<img class="tab-image fiction-image"  *ngIf="!authservice.isLogin" (click)="loginModal(loginpopup)" default="{{ globalservice.dummyImage}}" src={{stories.cover_image}}/>
+<img class="tab-image fiction-image" *ngIf="authservice.isLogin"  default="{{ globalservice.dummyImage}}" src={{stories.cover_image}}/>
+</a>
+<!--fiction-slider-description-->
+<div class="tab-image-content fiction-image-content">
+  <div class="story-name-count-sec">
+    <div class="story-name">{{stories.title}}</div>
+    <div class="story-count"><img src="../../assets/images/star.svg" /><span>{{ stories.average_rating }}</span></div>
+  </div>
+  <div class="episodes">{{ stories.minutes}} minute read</div>
+  <div class="writer-img-name">
+    <div class="writer-img"><img default="{{ globalservice.dummyuser }}" src="{{stories.author_image}}" /></div>
+    <div class="write-name-des">
+      <h6>{{stories.author_full_name}}</h6>
+      <p>In {{ stories.genre_title }}</p>
+    </div>
+  </div>
+</div>
+
+<ng-template #loginpopup>
+  <app-signupmodal  (loginModelClose)="loginModelCloseEmit()" ></app-signupmodal>
+<ng-template>

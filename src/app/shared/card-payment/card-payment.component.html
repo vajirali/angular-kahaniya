@@ -1,0 +1,27 @@
+<div class="payment-section">
+    <div class="payment-title">Payment Details</div>
+      <form class="payment-form">
+        <div class="p-p-title">Do users have to pay for this story?</div>
+        <div class="radio-option">
+          <div class="enter-coin">
+            <label class="cu-rdo" >Yes
+              <input type="radio" name="radio" (click)="checkOption('yes')" [checked]="radcheck">
+              <span class="rdo-checkmark"></span>
+            </label>
+          </div>
+          <label class="cu-rdo">No
+              <input type="radio" name="radio" (click)="checkOption('no')" [checked]="!radcheck">
+              <span class="rdo-checkmark"></span>
+          </label>
+        </div>
+          <div class="coin-text" *ngIf="coinSection">
+              <label>Enter Number of Coins</label>
+              <input type="text" numbersOnly name="coin" [(ngModel)]="totalcoin" placeholder="Eg:15">
+              <button class="btn btn-primary" [disabled]="!totalcoin" (click)="publish()">Save</button>
+          </div>
+
+      </form>
+      <div class="term-conditions">
+          TERMS AND CONDITIONS
+      </div>
+</div>

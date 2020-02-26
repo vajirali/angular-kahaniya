@@ -1,0 +1,243 @@
+<div class="landing-page-main-section">
+  <!--top section-->
+  <div class="top-section">
+    <!--language section-->
+    <div class="language-section">
+      <div class="lng-left col-md-6">
+        <h4>{{ 'a_platform_of_great_opportunities' | translate }}</h4>
+        <div class="dot-bg-top"></div>
+        <div class="video-sec">
+          <iframe width="520" height="350" src="https://www.youtube.com/embed/gxqD8lyExGs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+       </div>
+       <div class="dot-bg-bottom"></div>
+      </div>
+      <div class="lng-right col-md-6">
+        <h6>{{ 'header_chooseyourreadinglanguage' | translate }}</h6>
+        <p>{{ 'we_will_use_the_selected_language_to_present_you_with_the_best_collection_we_have_in_store' | translate }}</p>
+        <div class="all-language">
+            <div class="col-md-4 language-show" *ngFor="let langaugesData of globalservice.allLanguages">
+                <button class="btn btn-primary btn-lang {{langaugesData.slug === globalservice.displayLanguage ? 'selected' : ''}} " (click)="listClick(langaugesData)">{{ globalservice.languageCombo[langaugesData.slug] }}</button>
+            </div>
+        </div>
+        <div class="send-mobile-sec">
+          <p>{{ 'getadownloadlinktokahaniyamobileapp' | translate }}</p>
+          <div class="mobile-send">
+            <input type="number" name="mobile" placeholder="{{ 'enteryourmobilenumber' | translate }}">
+            <button class="btn btn-primary btn-mobile">{{ 'send' | translate }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--reaad and write section-->
+    <div class="read-write-count-section">
+      <h4>{{ 'readandwriteunlimitedstoriesinthebiggestlibraryavailable' | translate }}</h4>
+      <p>{{ 'landing_first' | translate }}</p>
+      <div class="all-count">
+        <div class="col-md-4">
+          <img src="../../assets/images/writer.svg">
+          <div class="scount">350</div>
+          <div class="sname">{{ 'writers' | translate }}</div>
+        </div>
+        <div class="col-md-4">
+            <img src="../../assets/images/fairy-tale.svg">
+            <div class="scount">2,45,000</div>
+            <div class="sname">{{ 'hometab_stories' | translate }}</div>
+        </div>
+        <div class="col-md-4">
+            <img src="../../assets/images/goal.svg">
+            <div class="scount">120</div>
+            <div class="sname">{{ 'success_stories' | translate }}</div>
+        </div>
+      </div>
+    </div>
+    <!--mobile app details section-->
+    <div class="carry-story-section">
+      <div class="carry-left col-md-6">
+        <img src="../../assets/images/mobile-application.png">
+      </div>
+      <div class="carry-right col-md-6">
+        <div class="carry-title">{{ 'carryyourstorieswhereveryougo' | translate }}</div>
+        <p class="carry-des">{{ 'landing_second' | translate }}</p>
+        <div class="available-app-img">
+          <img src="../../assets/images/appstore.svg">
+          <img src="../../assets/images/googleplay.svg">
+        </div>
+      </div>
+      <div class="carry-left col-md-6 mobile">
+          <img src="../../assets/images/mobile-application.png">
+      </div>
+    </div>
+  </div>
+  <!--bottom section-->
+  <div class="bottom-section">
+    <!--kahani specific section-->
+    <div class="kahani-specific-sec">
+      <div class="kahaniya-lunched-sec">
+        <div class="col-md-6">
+          <div class="bottom-kahani-left">
+            <h4>{{ 'kahaniyalaunchpad' | translate }}</h4>
+            <p>{{ 'landing_third' | translate }}</p>
+            <button class="btn btn-primary btn-knowmore">{{ 'knowmore' | translate }}</button>
+          </div>
+        </div>
+        <div class="col-md-6">
+            <div class="bottom-kahani-right">
+              <img src="../../assets/images/Artboard 1.png">
+            </div>
+        </div>
+        <button class="btn btn-primary btn-knowmore mobile">{{ 'knowmore' | translate }}</button>
+      </div>
+      <div class="kahaniya-Konnect">
+        <div class="col-md-6">
+            <div class="bottom-kahani-right">
+                <img src="../../assets/images/Artboard 2.png">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="bottom-kahani-left">
+                <h4>{{ 'kahaniyakonnect' | translate }}</h4>
+                <p>{{ 'landing_forth' | translate }}</p>
+                <button class="btn btn-primary btn-knowmore">{{ 'knowmore' | translate }}</button>
+            </div>
+        </div>
+      </div>
+      <!--mobile section-->
+      <div class="kahaniya-Konnect mobile">
+          <div class="col-md-6">
+              <div class="bottom-kahani-left">
+                  <h4>{{ 'kahaniyakonnect' | translate }}</h4>
+                  <p>{{ 'landing_forth' | translate }}</p>
+                  <button class="btn btn-primary btn-knowmore">{{ 'knowmore' | translate }}</button>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="bottom-kahani-right">
+                  <img src="../../assets/images/Artboard 2.png">
+              </div>
+          </div>
+          <button class="btn btn-primary btn-knowmore mobile">{{ 'knowmore' | translate }}</button>
+      </div>
+      <div class="kahaniya-melange">
+          <div class="col-md-6">
+            <div class="bottom-kahani-left">
+              <h4>{{ 'kahaniyamelange' | translate }}</h4>
+              <p>{{ 'landing_forth' | translate }}</p>
+              <button class="btn btn-primary btn-knowmore">{{ 'knowmore' | translate }}</button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="bottom-kahani-right">
+              <img src="../../assets/images/Artboard 3.png">
+            </div>
+          </div>
+          <button class="btn btn-primary btn-knowmore mobile">{{ 'knowmore' | translate }}</button>
+      </div>
+    </div>
+    <!---succes stories review slider-->
+    <div class="sucess-next-section">
+      <div class="success-stori-review-sec">
+        <div class="success-story-top-title">
+          <h4>{{ 'success_stories' | translate }}</h4>
+          <p>{{ 'landing_fifth' | translate }}</p>
+          <button class="btn btn-primary btn-share-story">{{ 'shareyourstory' | translate }}</button>
+        </div>
+        <div class="review-slider-section">
+          <owl-carousel [options]="reviewSlideOptions"  [carouselClasses]="['owl-theme', 'sliding', 'review-slide']" >
+            <div class="item" *ngFor="let image of reviewtSlideImages;let i = index">
+              <div class="review-section">
+                  <div class="rw-sec-img">
+                    <img src={{image.image}}>
+                  </div>
+                  <div class="rw-sec-content">
+                    <p>{{image.text}}</p>
+                  </div>
+              </div>
+            </div>
+          </owl-carousel>
+        </div>
+      </div>
+      <!--You could be next-->
+      <div class="be-next-section">
+        <h4>{{ 'youcouldbenext' | translate }}</h4>
+        <p>{{ 'landing_first' | translate }}</p>
+        <img src="../../assets/images/landing-next.svg">
+      </div>
+      <!--end-->
+    </div>
+    <!--landing page footer-->
+    <div class="landing-footer">
+      <div class="col-md-4 first-sec">
+        <div class="main-logo"><a routerLink="/home">{{ 'kahaniya' | translate }}</a></div>
+        <div class="address-section">
+            <div class="footer-first-img">
+              <img class="footer-icon" src="../../assets/images/footer-location.svg">
+            </div>
+            <div class="footer-first-des">
+              <span>Catalyst - A T-Hub building,<br> IIIT Campus, Gachibowli,<br> Hyderabad, Telangana,<br> India - 500076</span>
+            </div>
+        </div>
+        <div class="call-section">
+            <div class="footer-first-img">
+              <img class="footer-icon" src="../../assets/images/footer-call.svg">
+            </div>
+            <div class="footer-first-des">
+             <span><a href="callto:+91 9160044559">+91 9160044559</a></span>
+            </div>
+        </div>
+        <div class="email-section">
+            <div class="footer-first-img">
+             <img class="footer-icon" src="../../assets/images/footer-mail.svg">
+            </div>
+            <div class="footer-first-des">
+              <span><a href="mailto:hello@kahaniya.com">hello@kahaniya.com</a></span>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-4 sec-sec">
+        <div class="footer-title">{{ 'quicklinks' | translate }}</div>
+        <div class="col-md-4">
+          <ul class="footer-links">
+            <li><a href="#">{{ 'aboutus' | translate }}</a></li>
+            <li><a href="#">{{ 'ourteam' | translate }}</a></li>
+            <li><a href="#">{{ 'privacy' | translate }}</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+            <ul class="footer-links">
+                <li><a href="#">{{ 'terms' | translate }}</a></li>
+                <li><a href="#">{{ 'contact' | translate }}</a></li>
+                <li><a href="#">{{ 'contact' | translate }}</a></li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <ul class="footer-links">
+                <li><a href="#">{{ 'terms' | translate }}</a></li>
+                <li><a href="#">{{ 'contact' | translate }}</a></li>
+                <li><a href="#">{{ 'contact' | translate }}</a></li>
+            </ul>
+        </div>
+      </div>
+      <div class="col-md-4 third-sec">
+        <div class="footer-title">{{ 'followus' | translate }}</div>
+        <div class="social-share-section">
+          <div class="img-section">
+            <a href="https://www.facebook.com/KahaniyaOfficial/" target="_blank">
+              <img class="fb" src="../../assets/images/footer-fb.svg">
+            </a>
+          </div>
+          <div class="img-section">
+            <a href="https://twitter.com/kahaniya_com" target="_blank">
+              <img class="tw" src="../../assets/images/footer-twitter.svg">
+            </a>
+          </div>
+          <div class="img-section">
+            <a href="#" target="_blank">
+            <img class="ins" src="../../assets/images/footer-instagram.svg">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end-->
+  </div>
+</div>

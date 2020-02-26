@@ -1,0 +1,61 @@
+<div class="coin-main-section">
+  <div class="ac-rec-sec">
+    <div class="account-info-setion">
+      <h6>{{"wrstrory_accountinfo" | translate}}</h6>
+      <p>{{"wrstrory_totalavailablecoins" | translate}}</p>
+      <div class="coin-count-sec">
+        <img src="../../assets/images/coins.svg">
+        <span class="c-count">{{ wallet_balance }} {{"coins" | translate}}</span>
+      </div>
+    </div>
+    <div class="recharge-section">
+        <h6>{{"recharge" | translate}}</h6>
+        <div class="range-slider-section">
+          <div class="range">
+            <input type="range" min="1" max="8" value="1">
+          </div>
+          <ul class="range-labels">
+            <li *ngFor="let n of list" (click)="select(n)" class="{{n <= setSlider ? 'active':'' }}"><span class="{{n == setSlider ? 'selected':'' }}">{{n}}</span></li>
+          </ul>
+        </div>
+        <div class="rech-amo-sec">
+          <div class="selected-recharge-sec">
+            <div class="titl">{{"wrstrory_selectedrecharge" | translate}}</div>
+            <span class="s-r-c">{{setSlider}} {{"coins" | translate}}</span>
+          </div>
+          <div class="selected-recharge-sec">
+              <div class="titl">{{"wrstrory_amounttobepaid" | translate}}</div>
+              <span class="s-r-c">{{ setSlider }} {{"rupees" | translate}}</span>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-pay" (click)="initPay()">{{"pay" | translate}} ₹ {{ setSlider }}</button>
+        <div class="term">{{"wrstrory_termsandconditions" | translate}}</div>
+        <!-- <div class="term">{{"rupees" | translate}}</div> -->
+    </div>
+  </div>
+  <div class="transaction-history-section">
+      <div class="t-h-title">{{"transactionhistory" | translate}}</div>
+
+      <div class="body table-responsive">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>{{"coins" | translate}}</th>
+            <th>{{"date" | translate}}</th>
+            <th>{{"credit_debit" | translate}}</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tran of transactionCollection; let i = index">
+              <td>{{ tran.coins }} {{"coins" | translate}}</td>
+              <td>{{ tran.created_at | date }}</td>
+              <td>{{ tran.transaction_type }}</td>
+            </tr>
+          </tbody>
+        </table>
+     </div>
+     <div class="pagination-section" *ngIf="transactionCollection">
+        <pagination [totalItems]="totaltransaction" [maxSize]="maxSize" (pageChanged)="pageChanged($event)" class="justify-content-center"></pagination>
+     </div>
+  </div>
+</div>

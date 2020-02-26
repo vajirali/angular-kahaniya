@@ -1,0 +1,300 @@
+/*add episode second screen css start*/
+
+.write-story{
+    background: linear-gradient(to right, #43A047, #8bc34a);
+    padding-top: 5.208vw;
+    height: 22.760vw;
+    position: relative;
+}
+.inner-left {
+    width: 18.906vw;
+    margin-right: 1.7187vw;
+ }
+ .inner-right {
+    width: 19.6vw;
+    background: #fff;
+ }
+ .inner-middle {
+    width: 42.70vw;
+    background: #fff;
+    margin-right: 1.7187vw;
+ }
+ .main-writing-section{
+    box-shadow: 0 0.219vw 0.439vw rgba(0, 0, 0, 0.16);
+    padding: 1.9791vw 2.708vw;
+    margin-bottom: 2.031vw;
+ }
+ .story-name input {
+    font-family: 'manrope';
+    color: #3E3E3E;
+    font-size: 1.562vw;
+    font-weight: 700;
+    line-height: 2.604vw;
+    border:none;
+    text-align: center;
+    width:100%;
+}
+.writer-name input {
+    font-family: 'manrope';
+    color: rgba(62, 62, 62, 0.65);
+    font-weight: 500;
+    font-size: 0.8333vw;
+    line-height: 1.406vw;
+    border: none;
+    text-align: center;
+    width:100%;
+}
+.story-image img {
+    width: 18.906vw;
+    height: 18.906vw;
+}
+img.profile-w-edit {
+    width: 2.983vw !important;
+    height: 2.983vw !important;
+    position: absolute;
+    top: 0.278vw;
+    right: 0;
+    cursor: pointer;
+}
+.add-episode-inner-sec {
+    padding-left: 9.11vw;
+    padding-right: 9.11vw;
+    padding-bottom: 8.281vw;
+    display: flex;
+    position: absolute;
+    top: 49.5%;
+    left: 0;
+    right: 0;
+ }
+ .cover-section {
+    width: 18.906vw;
+    height: 18.906vw;
+    margin-bottom: 1.6145vw;
+    background: #Fff;
+    box-shadow: 0 0.219vw 0.439vw rgba(0, 0, 0, 0.16);
+    position: relative;
+ }
+ .episode-section {
+    background: #fff;
+    box-shadow: 0 0.219vw 0.439vw rgba(0, 0, 0, 0.16);
+    padding: 1.562vw 1.406vw;
+ }
+ .placeholder-secion img {
+    width: 1.770vw;
+    height: 1.770vw;
+ }
+ .placeholder-secion p {
+    color: rgba(62, 62, 62, 0.25);
+    font-weight: 600;
+    font-family: 'manrope';
+    font-size: 0.7291vw;
+    margin-bottom: 0;
+ }
+ .cover-section #file-input {
+    position: absolute;
+    top: 1.510vw;
+    right: 0;
+    display: block;
+    height: 2.906vw;
+    width: 2.906vw;
+    opacity: 0;
+    -moz-opacity: 0;
+    margin-top: -1.464vw;
+    cursor: pointer;
+    z-index: 9;
+ }
+ .placeholder-secion {
+    display: block;
+    height: 100%;
+    text-align: center;
+    padding-top: 6.954vw;
+ }
+ .episode-header {
+    font-family: 'manrope';
+    color: #3E3E3E;
+    font-weight: 700;
+    font-size: 0.937vw;
+    padding-bottom: 0.781vw;
+    border-bottom: 0.0732vw solid rgba(62, 62, 62, 0.10);
+ }
+ .episode-content {
+    padding-top: 1.458vw;
+ }
+ .e-name {
+    color: #3E3E3E;
+    font-size: 0.8333vw;
+    line-height: 1.0416vw;
+    font-family: 'sofia_proregular';
+    font-weight:normal;
+    padding-left: 0.5208vw;
+ }
+ .e-no {
+    font-size: 0.8333vw;
+    line-height: 1.8229vw;
+    font-family: 'sofia_proregular';
+    background: #43A047;
+    border-radius: 50%;
+    width: 1.8229vw;
+    color: #fff;
+    height: 1.8229vw;
+    text-align: center;
+ }
+ .episode-num {
+    display: flex;
+    align-items: center;
+    width: calc(100%);
+ }
+ .episode-bookmark img {
+    width: 0.781vw;
+    height: 0.885vw;
+ }
+ .episode-num-name {
+    display: flex;
+    align-items: baseline;
+    padding-bottom: 1.1458vw;
+ }
+ .add-episode-inner-sec .episode-header span {
+    float: right;
+    color: #43A047;
+    font-weight: 500;
+    font-family: 'manrope';
+    font-size: 0.8333vw;
+ }
+ .episode-write-header {
+    color: #3E3E3E;
+    font-family: 'manrope';
+    font-weight: 700; 
+    font-size: 1.562vw;
+    text-align: center;
+    padding-bottom: 2.083vw;
+ }
+ textarea.autosizetextepisode {
+    width: 100%;
+    resize: none;
+    border: none;
+    color: #3E3E3E;
+    font-size: 1.25VW;
+    font-family: 'AdobeGaramondProRegular';
+    text-align: left;
+    height: 35.139vw;
+ }
+ .episode-writting-section textarea::-webkit-scrollbar-thumb{
+    background-color: #E6E6E6;
+    outline: 0;
+  }
+  .episode-writting-section textarea::-webkit-scrollbar{
+    width: 0.366vw;
+  }
+  .episode-writting-section textarea::-webkit-scrollbar-thumb:hover{
+    background-color: #43A047;
+  }
+  .right-draft-content {
+    box-shadow: 0 0.219vw 0.439vw rgba(0, 0, 0, 0.16);
+    height: auto;
+    padding: 1.3020vw;
+    background: #fff;
+ }
+ .add-episode-inner-sec .inner-right {
+    background: none;
+ }
+ .draft-header {
+    color: #3E3E3E;
+    font-weight: 700;
+    font-family: 'manrope';
+    font-size: 0.937vw;
+    line-height: 1.302vw;
+    border-bottom: 0.0732vw solid rgba(62, 62, 62, 0.15);
+    padding-bottom: 0.8333vw;
+ }
+ .draft-content img {
+    width: 7.187vw;
+    height: 7.187vw;
+    margin-top: 2.697vw;
+ }
+ .draft-content p {
+    margin-bottom: 0;
+    color: rgba(62, 62, 62, 0.40);
+    font-weight: 500;
+    font-family: 'manrope';
+    font-size: 0.8333vw;
+    padding-bottom: 3.437vw;
+ }
+ .draft-content {
+    text-align: center;
+ }
+ button.btn-publish {
+    background: linear-gradient(to right, #43A047 5%, #A4C771 127%, #A6C872);
+    border: none;
+    border-radius: 0.732vw;
+    font-size: 0.833vw;
+    padding: 0.825VW 3.26VW;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0.219vw 1.024vw;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'manrope';
+ }
+ button.btn-publish.btn-draft {
+    margin-left: 1.770vw;
+ }
+ .sticky-button-section {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 82%;
+    margin-bottom: 1.8229vw;
+ }
+ .add-episode-inner-sec.published-episode-inner-sec .cover-section img {
+    width: 18.906vw;
+    height: 18.906vw;
+ }
+ .add-episode-inner-sec.published-episode-inner-sec .inner-right {
+    background: #fff !important;
+ }
+ /*end*/
+ /*left genre list section css*/
+.genre-list-section {
+   background: #fff;
+   box-shadow: 0 0.219vw 0.439vw rgba(0, 0, 0, 0.16);
+   padding: 1.562vw 1.406vw;
+   margin-bottom: 1.718vw;
+}
+.genre-list-header {
+   font-family: 'manrope';
+   color: #3E3E3E;
+   font-weight: 700;
+   font-size: 0.937vw;
+   padding-bottom: 0.781vw;
+   border-bottom: 0.0732vw solid rgba(62, 62, 62, 0.1);
+   letter-spacing: 0.2px;
+}
+.genre-list-content {
+   padding-top: 1.458vw;
+}
+.genre-num {
+   position: relative;
+   padding-bottom: 1.098vw;
+}
+select.detail-edit.minimal {
+   color: #3E3E3E;
+   font-size: 0.93vw;
+   line-height: 1.8vw;
+   font-family: 'manrope';
+   font-weight: 700;
+   padding-left: 0;
+   letter-spacing: 0.5px;
+   border: none;
+   width: 100%;
+   cursor: pointer;
+}
+select.minimal{
+   background-image: url('../../assets/images/genre-edit.svg');
+   background-position: 98%;
+   background-size: 0.732vw;
+   background-repeat: no-repeat;
+   -webkit-appearance: none;
+}
+.genre-list-content .genre-num:last-child {
+   padding-bottom: 0 !important;
+}
+/*end*/

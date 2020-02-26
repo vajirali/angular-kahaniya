@@ -1,0 +1,111 @@
+<!--middle section-->
+<div class="profile-writting-section">
+    <div class="profile-w-header"></div>
+    <div class="profile-w-content" *ngIf="authorProfile">
+        <div class="profile-w-content-left">
+          <div class="edit-profile-sec">
+            <div class="profile-w-image-sec">
+              <img default="{{ globalservice.dummyuser }}" src="{{ authorProfile.image }}">
+            </div>
+            <div class="profile-w-des">
+              <div class="p-w-n">{{ authorProfile.full_name }}</div>
+              <div class="p-w-d" [innerHTML]="authorProfile.biography"></div>
+            </div>
+            <div class="social-couunt-follow-sec">
+              <div class="p-followers-sec">
+                <h6>{{ authorProfile.followers }}</h6>
+                <p>{{"prowrit_followers" | translate}}</p>
+              </div>
+              <div class="p-writting-sec">
+                <h6>{{ authorProfile.writings }}</h6>
+                <p>{{"prowrit_writtings" | translate}}</p>
+              </div>
+              <div class="p-following-sec">
+                <h6>{{ authorProfile.followings }}</h6>
+                <p>{{"prowrit_followings" | translate}}</p>
+              </div>
+            </div>
+            <button *ngIf="!authorProfile.is_following" class="btn btn-primary btn-follow i-btn-follow" (click)="followAuthor(authorProfile.id)">{{"follow" | translate}}</button>
+            <button *ngIf="authorProfile.is_following" class="btn btn-primary btn-follow i-btn-follow" (click)="unfollowAuthor(authorProfile.id)">{{"unfollow" | translate}}</button>
+          </div>
+        </div>
+        <div class="profile-w-content-right">
+          <div class="profile-w-tab-section">
+              <div class="profile-title">{{ authorProfile.full_name }}'s Writings</div>
+                <div class="writing-tab-content">
+                  <!---series section-->
+                  <div class="series-section">
+                      <div class="w-tab-header-sec">
+                          <div class="title-name">{{'hometab_series' | translate}}</div>
+                          <a routerLink="/all/series/{{authorid}}">
+                               <div class="view-all" *ngIf="seriesCollection.length > 4">{{'viewall' | translate}}</div>
+                         </a>
+                      </div>
+                      <div class="no-record" *ngIf="seriesCollection == 0">
+                          <div class="notview-all-record" >{{'norecord' | translate}}</div>
+                      </div>
+                      <div class="p-w-s-main">
+                          <div class="profile-wrting-series-content" *ngFor="let series of seriesCollection; let i = index">
+                              <div *ngIf="i < 4">
+                                  <app-card-inner-series [series]="series"></app-card-inner-series>
+                              </div>
+                           </div>
+                        </div>
+                  </div>
+                   <!--stories section-->
+                   <div class="stories-section">
+                      <div class="w-tab-header-sec">
+                          <div class="title-name">{{'hometab_stories' | translate}}</div>
+                          <a routerLink="/all/stories/{{authorid}}">
+                              <div class="view-all" *ngIf="storiesCollection.length > 4">{{'viewall' | translate}}</div>
+                          </a>
+                      </div>
+                      <div class="no-record" *ngIf="storiesCollection == 0">
+                          <div class="notview-all-record" >{{'norecord' | translate}}</div>
+                      </div>
+                      <div class="p-w-st-main">
+                          <div class="profile-wrting-story-content" *ngFor="let stories of storiesCollection; let i = index">
+                              <div *ngIf="i < 4">
+                                  <app-card-inner-stories [stories]="stories"></app-card-inner-stories>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!--nano stories section-->
+                  <div class="naano-story-section">
+                      <div class="w-tab-header-sec">
+                          <div class="title-name">{{'hometab_nanos' | translate}}</div>
+                          <a routerLink="/all/nanostory/{{authorid}}">
+                               <div class="view-all" *ngIf="nanosCollection.length > 3">{{'viewall' | translate}}</div>
+                          </a>
+                      </div>
+                      <div class="no-record" *ngIf="nanosCollection == 0">
+                          <div class="notview-all-record" >{{'norecord' | translate}}</div>
+                      </div>
+                      <div class="nano-content-section" *ngFor="let nanos of nanosCollection; let i = index">
+                          <div class="inner-nn" *ngIf="i < 3">
+                              <app-card-nanostory [nanos]="nanos"></app-card-nanostory>
+                          </div>
+
+                       </div>
+                  </div>
+                  <!---schedule section-->
+                  <div class="schedule-section">
+                      <div class="w-tab-header-sec">
+                          <div class="title-name">{{'scheduled' | translate}}</div>
+                          <div class="view-all">{{'viewall' | translate}}</div>
+                      </div>
+                      <div class="draft-content">
+                        <div class="d-c-s">
+                          <input type="file" name="d-c-s-file" id="file-input">
+                          <img src="../../assets/images/schedule-img.png">
+                          <div class="dr-title">Story Title</div>
+                          <div class="dr-time">Scheduled to publish on 26 June, 2019</div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+          </div>
+        </div>
+    </div>
+  </div>

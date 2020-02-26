@@ -1,0 +1,126 @@
+.payment-section {
+    background: #fff;
+    box-shadow: 0 0.219vw 0.439vw rgba(0, 0, 0, 0.16);
+    margin-top:0;
+    padding: 1.3020vw;
+    position: absolute;
+    top: 20.64vw;
+    width: 18.8%;
+ }
+ .payment-title {
+    color: #3E3E3E;
+    font-weight: 700;
+    font-family: 'manrope';
+    font-size: 0.937vw;
+    line-height: 1.302vw;
+    border-bottom: 0.0732vw solid rgba(62, 62, 62, 0.15);
+    padding-bottom: 0.8333vw;
+ }
+ .payment-section .p-p-title {
+    color: #3E3E3E;
+    font-weight: 600;
+    font-family: 'manrope';
+    font-size: 0.98vw;
+    line-height: 1.302vw;
+    padding-top: 0.9333vw;
+    padding-bottom: 1.2vw;
+ }
+ .payment-section .radio-option {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.366vw;
+ }
+ .payment-section .enter-coin {
+    margin-right: 1.464vw;
+ }
+ .payment-section .cu-rdo{
+    font-size: 0.99vw;
+ }
+ .coin-text label {
+    color: #3E3E3E;
+    font-weight: 600;
+    font-family: 'manrope';
+    font-size: 0.99vw;
+    line-height: 1.302vw;
+    padding-top: 0;
+ }
+ .coin-text::placeholder{
+    color: rgba(62, 62, 62, 0.5);
+ }
+ .coin-text input {
+    border: none;
+    color: rgba(62, 62, 62, 1);
+    font-weight: 600;
+    font-family: 'manrope';
+    font-size: 0.99vw;
+    line-height: 1.302vw;
+    padding-top: 0;
+    width: 100%;
+    border-bottom: 0.0732vw solid rgba(62, 62, 62, 0.1);
+    padding-bottom: 0.366vw;
+    margin-bottom: 2.196vw;
+ }
+ .term-conditions {
+    margin-bottom: 0;
+    color: #43A047;
+    font-weight: 700;
+    font-family: 'manrope';
+    font-size: 0.89vw;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 1.464vw;
+ }
+ .cu-rdo {
+    display: block;
+    position: relative;
+    padding-left: 1.5208vw;
+    margin-bottom: 0.781vw;
+    cursor: pointer;
+    font-size: 0.833vw;
+    font-family: 'manrope';
+    font-weight: 500;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .cu-rdo input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    left: 0;
+    top: 0.146vw;
+  }
+  .rdo-checkmark{
+    position: absolute;
+    top: 0.0732vw;
+    left: 0;
+    height: 1.025vw;
+    width: 1.025vw;
+    background-color: #F2F2F2;
+    border-radius: 50%;
+  }
+  .cu-rdo:hover input ~ .rdo-checkmark {
+    background-color: #ccc;
+  }
+  .cu-rdo input:checked ~ .rdo-checkmark {
+    background-color: #43A047;
+  }
+  .rdo-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  .cu-rdo input:checked ~ .rdo-checkmark:after {
+    display: block;
+  }
+  .cu-rdo .rdo-checkmark:after {
+    top: 0.292vw;
+    left: 0.292vw;
+    width: 0.439vw;
+    height: 0.439vw;
+    border-radius: 50%;
+    background: white;
+  }
+ 

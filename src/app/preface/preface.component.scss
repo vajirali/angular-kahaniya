@@ -1,0 +1,685 @@
+/*middle section css start*/
+.preface-bg-content {
+   height: 22.760vw;
+   background: linear-gradient(to right, #43A047, #8bc34a);
+   padding-top: 5.208vw;
+   position: relative;
+}
+.inner-content-section {
+   padding-left: 9.11vw;
+   padding-right: 9.11vw;
+   padding-bottom: 8.281vw;
+   display: flex;
+   position: absolute;
+   top: 49.5%;
+   left: 0;
+   right: 0;
+}
+/*inner left*/
+.inner-left {
+   width: 18.906vw;
+   margin-right: 1.7187vw;
+}
+.subscribe-section {
+   padding-bottom: 1.718vw;
+   position: relative;
+}
+img.subscription-img {
+   width: 18.906vw;
+   height: 100%;
+}
+.subscribe-content {
+   background: #fff;
+   box-shadow: 0 0.219vw 0.439vw rgba(0, 0, 0, 0.16);
+   padding-top: 0.885vw;
+   padding-bottom: 1.8229vw;
+}
+.total-subscribe-sec {
+   padding-left: 0.781vw;
+}
+.total-subscribe-sec span {
+   font-family: 'manrope';
+   font-weight: 500;
+   color: #43A047;
+   font-size: 0.833vw;
+   line-height: 1.406vw;
+   padding-left: 0.260vw;
+}
+.total-subscribe-sec img {
+   width: 0.625VW !important;
+}
+.preface-section .inner-left .total-subscribe-sec {
+   text-align: center;
+}
+/*inner middle*/
+.inner-middle {
+   width: 42.70vw;
+   background: #fff;
+   margin-right: 1.7187vw;
+}
+.main-story-section {
+   box-shadow: 0 0.219vw 0.439vw rgba(0, 0, 0, 0.16);
+   padding: 1.9791vw 2.708vw;
+   margin-bottom: 2.031vw;
+}
+.story-header {
+   text-align: center;
+   padding-bottom: 1.25vw;
+   display: flex;
+   align-items: center;
+   position: relative;
+}
+.story-name {
+   font-family: 'manrope';
+   color: #3E3E3E;
+   font-size: 1.562vw;
+   font-weight: 700;
+   line-height: 2.604vw;
+}
+.writer-name {
+   font-family: 'manrope';
+   color: rgba(62, 62, 62, 0.65);
+   font-weight: 500;
+   font-size: 0.8333vw;
+   line-height: 1.406vw;
+}
+.story-review-share-zoom-section {
+   display: flex;
+   align-items: center;
+   padding-bottom: 0.781vw;
+   border-bottom: 0.0732vw solid rgba(0, 0, 0, 0.10);
+}
+.view-review-section {
+   display: flex;
+   align-items: center;
+   width: calc(77%);
+}
+.view-review-section img {
+   width: 0.8333vw;
+   height: 0.8333vw;
+}
+.story-view {
+   padding-right: 0.833vw;
+}
+.view-review-section span {
+   color: #3E3E3E;
+   font-size: 0.8333vw;
+   font-family: 'manrope';
+   line-height: 1.406vw;
+   font-weight: normal;
+   padding-left: 0.260vw;
+}
+.main-writing-section {
+   box-shadow: 0 0.219vw 0.439vw rgba(0, 0, 0, 0.16);
+   padding: 1.9791vw 2.708vw;
+   margin-bottom: 2.031vw;
+}
+.add-episode p {
+   margin-bottom: 0;
+   color: #43A047;
+   font-weight: 500;
+   font-family: 'manrope';
+   font-size: 0.83333vw;
+   text-transform: uppercase;
+   cursor: pointer;
+}
+.add-episode {
+   padding-top: 0.512vw;
+}
+.story-writting-section textarea {
+   border: none;
+   resize: none;
+   width: 100%;
+   color: #3E3E3E;
+   font-family: 'AdobeGaramondProRegular';
+   font-size: 1.25VW;
+   line-height: 1.770vw;
+   padding-top: 2.083vw;
+   padding-bottom: 2.083vw;
+}
+button.btn.btn-primary.btn-start-reading {
+   font-family: 'manrope';
+   font-weight: 600;
+   padding: 0.525VW 1.575VW;
+   border: 0.0732vw solid #43A047;
+   margin-top: 1.9791vw;
+}
+button.btn.btn-primary.btn-start-reading:hover {
+   background: none;
+   color: #43A047;
+}
+.note-s{
+   color: rgba(62, 62, 62, 0.70);
+   font-weight: 500;
+   font-family: 'manrope';
+   line-height: 0.989vw;
+   font-size: 0.729vw;
+   margin-bottom: 0;
+   padding-top: 1.3541vw;
+   text-align: center;
+}
+.st-hd-right img {
+   height: 1.25vw;
+}
+.st-hd-left {
+   width: calc(100%);
+}
+.st-hd-right {
+   cursor: pointer;
+}
+.dotmenu.close-menu {
+   display: none;
+}
+.dotmenu.open {
+   position: absolute;
+   right: 0;
+   top: 2.928vw;
+   background: #fff;
+   box-shadow: 0 0.219vw 0.878vw rgba(0, 0, 0, 0.15);
+   width: 8.0729vw;
+   height: 5.416vw;
+}
+.edit-share-sec {
+   padding: 0.781vw;
+   font-family: 'manrope';
+   font-weight: 500;
+   font-size: 0.833vw;
+   color: #43A047;
+   line-height: 1.145vw;
+}
+.edit-sec {
+   border-bottom: 0.0732vw solid rgba(112, 112, 112, 0.15);
+   text-align: left;
+   padding: 0.439vw 0 0.439vw 0px;
+   cursor: pointer;
+}
+.share-sec {
+   text-align: left;
+   padding: 0.585vw 0 0.439vw 0px;
+   cursor: pointer;
+}
+.edit-share-sec span {
+   padding-left: 0.5208vw;
+}
+.edit-share-sec img {
+    width: 0.8291vw;
+    height: 0.8291vw;
+}
+/*inner right*/
+.preface-section .inner-right .follow-writing-section {
+   padding-bottom: 2.552vw;
+}
+.i-bg-right img {
+   width: 18.7vw !important;
+   height: 5.937vw !important;
+}
+.inner-right {
+   width: 19.6vw;
+   background: #fff;
+}
+.i-content img {
+   width: 5.468vw;
+   height: 5.468vw;
+   box-shadow: 0 0.219vw 0.439vw rgba(0, 0, 0, 0.16);
+   border-radius: 50%;
+}
+.i-content {
+   position: absolute;
+   top: 50%;
+   width: 100%;
+   text-align: center;
+   box-shadow: 0 0.219vw 0.439vw rgba(0, 0, 0, 0.16);
+}
+.i-right-content {
+   position: relative;
+}
+.i-auth-name {
+   padding-left: 0.747vw;
+   padding-right: 0.747vw;
+   font-family: 'manrope';
+   color: #3E3E3E;
+   font-weight: 600;
+   font-size: 0.8333vw;
+   padding-top: 0.625vw;
+   padding-bottom: 0.7812vw;
+}
+.i-auth-des {
+   padding-left: 0.747vw;
+   padding-right: 0.747vw;
+   font-weight: normal;
+   font-family: 'manrope';
+   color: #3E3E3E;
+   font-size: 0.7291vw;
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   margin-bottom: 0.937vw;
+}
+.inner-right .follow-writing-section {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.inner-right .followers-section {
+   padding-right: 1.875VW;
+   border-right: 0.0732vw solid rgba(62, 62, 62, 0.20);
+}
+.inner-right .followers-count,.writing-count {
+   font-family: 'manrope';
+   color: #43A047;
+   font-weight: 700;
+   font-size: 1.04166vw;
+   line-height: 2vw;
+}
+.inner-right .f-name,.inner-right .w-name {
+   font-family: 'manrope';
+   font-weight: normal;
+   color: #3E3E3E;
+   font-size: 0.833vw;
+   line-height: 1.197vw;
+}
+.inner-right .writing-section {
+   padding-left: 1.875VW;
+}
+/*end*/
+/*add episode second screen css start*/
+.addepisec.close-menu {
+   display: none;
+}
+.startwrite.close-menu {
+   display: none;
+}
+.add-episode-inner-sec {
+   padding-left: 9.11vw;
+   padding-right: 9.11vw;
+   padding-bottom: 8.281vw;
+   display: flex;
+   position: absolute;
+   top: 49.5%;
+   left: 0;
+   right: 0;
+}
+.cover-section {
+   width: 18.906vw;
+   height: 18.906vw;
+   margin-bottom: 1.6145vw;
+   background: #Fff;
+   box-shadow: 0 0.219vw 0.439vw rgba(0, 0, 0, 0.16);
+   position: relative;
+}
+.episode-section {
+   background: #fff;
+   box-shadow: 0 0.219vw 0.439vw rgba(0, 0, 0, 0.16);
+   padding: 1.562vw 1.406vw;
+}
+.placeholder-secion img {
+   width: 1.770vw;
+   height: 1.770vw;
+}
+.placeholder-secion p {
+   color: rgba(62, 62, 62, 0.25);
+   font-weight: 600;
+   font-family: 'manrope';
+   font-size: 0.7291vw;
+   margin-bottom: 0;
+}
+.cover-section #file-input {
+   position: absolute;
+   top: 1.510vw;
+   left: 0;
+   display: block;
+   height: 18.906vw !important;
+   width: 18.906vw !important;
+   opacity: 0;
+   -moz-opacity: 0;
+   margin-top: -1.464vw !important;
+   cursor: pointer;
+}
+.placeholder-secion {
+   display: block;
+   height: 100%;
+   text-align: center;
+   padding-top: 6.954vw;
+}
+.episode-header {
+   font-family: 'manrope';
+   color: #3E3E3E;
+   font-weight: 700;
+   font-size: 0.937vw;
+   padding-bottom: 0.781vw;
+   border-bottom: 0.0732vw solid rgba(62, 62, 62, 0.10);
+}
+.episode-content {
+   padding-top: 1.458vw;
+}
+.e-name {
+   color: #3E3E3E;
+   font-size: 0.8333vw;
+   line-height: 1.0416vw;
+   font-family: 'sofia_proregular';
+   font-weight:normal;
+   padding-left: 0.5208vw;
+}
+.e-no {
+   font-size: 0.8333vw;
+   line-height: 1.8229vw;
+   font-family: 'sofia_proregular';
+   background: #43A047;
+   border-radius: 50%;
+   width: 1.8229vw;
+   color: #fff;
+   height: 1.8229vw;
+   text-align: center;
+}
+.episode-num {
+   display: flex;
+   align-items: center;
+   width: calc(100%);
+   position: relative;
+}
+.episode-profile-w-edit{
+  width: 1vw !important;
+  height: 1vw !important;
+  position: absolute;
+  top: 0.278vw;
+  right: 0;
+  cursor: pointer;
+}
+.episode-bookmark img {
+   width: 0.781vw;
+   height: 0.885vw;
+}
+.episode-num-name {
+   display: flex;
+   align-items: baseline;
+   padding-bottom:0;
+}
+.episode-content .episode-num:last-child {
+   padding-bottom: 0 !important;
+}
+.episode-num-name.episode-list{
+   display: block;
+}
+.episode-num-name.episode-list .episode-num {
+  padding-bottom: 1.098vw;
+}
+.add-episode-inner-sec .episode-header span {
+   float: right;
+   color: #43A047;
+   font-weight: 500;
+   font-family: 'manrope';
+   font-size: 0.8333vw;
+}
+.episode-write-header {
+   color: #3E3E3E;
+   font-family: 'manrope';
+   font-weight: 700;
+   font-size: 1.562vw;
+   text-align: center;
+   padding-bottom: 2.083vw;
+}
+textarea.autosizetextepisode {
+   width: 100%;
+   resize: none;
+   border: none;
+   color: #3E3E3E;
+   font-size: 1.25VW;
+   font-family: 'AdobeGaramondProRegular';
+   text-align: left;
+   height: 35.139vw;
+}
+.episode-writting-section textarea::-webkit-scrollbar-thumb{
+   background-color: #E6E6E6;
+   outline: 0;
+ }
+ .episode-writting-section textarea::-webkit-scrollbar{
+   width: 0.366vw;
+ }
+ .episode-writting-section textarea::-webkit-scrollbar-thumb:hover{
+   background-color: #43A047;
+ }
+ .right-draft-content {
+   box-shadow: 0 0.219vw 0.439vw rgba(0, 0, 0, 0.16);
+   height: auto;
+   padding: 1.3020vw;
+   background: #fff;
+}
+.add-episode-inner-sec .inner-right {
+   background: none;
+}
+.draft-header {
+   color: #3E3E3E;
+   font-weight: 700;
+   font-family: 'manrope';
+   font-size: 0.937vw;
+   line-height: 1.302vw;
+   border-bottom: 0.0732vw solid rgba(62, 62, 62, 0.15);
+   padding-bottom: 0.8333vw;
+}
+.draft-content img {
+   width: 7.187vw;
+   height: 7.187vw;
+   margin-top: 2.697vw;
+}
+.draft-content p {
+   margin-bottom: 0;
+   color: rgba(62, 62, 62, 0.40);
+   font-weight: 500;
+   font-family: 'manrope';
+   font-size: 0.8333vw;
+   padding-bottom: 3.437vw;
+}
+.draft-content {
+   text-align: center;
+}
+button.btn-publish {
+   background: linear-gradient(to right, #43A047 5%, #A4C771 127%, #A6C872);
+   border: none;
+   border-radius: 0.732vw;
+   font-size: 0.833vw;
+   padding: 0.825VW 3.26VW;
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 0.219vw 1.024vw;
+   color: #fff;
+   text-transform: uppercase;
+   font-weight: 600;
+   font-family: 'manrope';
+}
+button.btn-publish.btn-draft {
+   margin-left: 1.770vw;
+}
+.sticky-button-section {
+   position: fixed;
+   bottom: 0;
+   text-align: center;
+   width: 82%;
+   margin-bottom: 1.8229vw;
+}
+.cu-rdo {
+   display: block;
+   position: relative;
+   padding-left: 1.5208vw;
+   margin-bottom: 0.781vw;
+   cursor: pointer;
+   font-size: 0.833vw;
+   font-family: 'manrope';
+   font-weight: 500;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+ }
+ .cu-rdo input {
+   position: absolute;
+   opacity: 0;
+   cursor: pointer;
+   left: 0;
+   top: 0.146vw;
+ }
+ .rdo-checkmark{
+   position: absolute;
+   top: 0.0732vw;
+   left: 0;
+   height: 1.025vw;
+   width: 1.025vw;
+   background-color: #F2F2F2;
+   border-radius: 50%;
+ }
+ .cu-rdo:hover input ~ .rdo-checkmark {
+   background-color: #ccc;
+ }
+ .cu-rdo input:checked ~ .rdo-checkmark {
+   background-color: #43A047;
+ }
+ .rdo-checkmark:after {
+   content: "";
+   position: absolute;
+   display: none;
+ }
+ .cu-rdo input:checked ~ .rdo-checkmark:after {
+   display: block;
+ }
+ .cu-rdo .rdo-checkmark:after {
+   top: 0.292vw;
+   left: 0.292vw;
+   width: 0.439vw;
+   height: 0.439vw;
+   border-radius: 50%;
+   background: white;
+ }
+ .add-episode-inner-sec.published-episode-inner-sec .cover-section img {
+   width: 18.906vw;
+   height: 18.906vw;
+}
+.add-episode-inner-sec.published-episode-inner-sec .inner-right {
+   background: #fff !important;
+}
+.story-name input {
+   font-family: 'manrope';
+   color: #3E3E3E;
+   font-size: 1.562vw;
+   font-weight: 700;
+   line-height: 2.604vw;
+   border:none;
+   text-align: center;
+   width:100%;
+}
+.writer-name input {
+   font-family: 'manrope';
+   color: rgba(62, 62, 62, 0.65);
+   font-weight: 500;
+   font-size: 0.8333vw;
+   line-height: 1.406vw;
+   border: none;
+   text-align: center;
+   width:100%;
+}
+img.profile-w-edit {
+   width: 2.983vw !important;
+   height: 2.983vw !important;
+   position: absolute;
+   top: 0.278vw;
+   right: 0;
+   cursor: pointer;
+}
+img.seriescreate {
+   width: 18.906vw;
+   height: 18.906vw;
+}
+.inner-left input#file-input {
+   position: absolute;
+   top: 1.510vw;
+   right: 0;
+   display: block;
+   height: 2.906vw;
+   width: 2.906vw;
+   opacity: 0;
+   -moz-opacity: 0;
+   margin-top: -1.464vw;
+   cursor: pointer;
+   z-index: 9;
+}
+/*display none*/
+.st-hd-right{
+   display: none;
+}
+/*end*/
+/*popup enter coin css*/
+.enter-coin {
+   display: flex;
+   align-items: center;
+   margin-bottom: 0.878vw;
+}
+.enter-coin  label.cu-rdo {
+   margin-bottom: 0;
+}
+.enter-coin .coin-text{
+   display: flex;
+   align-items: center;
+}
+.enter-coin .coin-text input{
+   color: #43a047;
+   margin-left: 1.625VW;
+   border: 0.0732vw solid #43a047;
+   border-radius: 0.366vw;
+   font-family: 'manrope';
+   font-size: 0.937vw;
+   padding-left: 0;
+   padding: 0.292vw 0.878vw 0.146vw 0.878vw;
+}
+.enter-coin .coin-text button.btn.btn-primary{
+   padding: 0.439vw 1.683vw;
+   border-radius: 0.366vw;
+   margin-left: 1.098vw;
+}
+/*end*/
+/*payment right*/
+.right-author-section {
+   height: 24%;
+}
+/*left genre list section css*/
+.genre-list-section {
+   background: #fff;
+   box-shadow: 0 0.219vw 0.439vw rgba(0, 0, 0, 0.16);
+   padding: 1.562vw 1.406vw;
+   margin-bottom: 1.718vw;
+}
+.genre-list-header {
+   font-family: 'manrope';
+   color: #3E3E3E;
+   font-weight: 700;
+   font-size: 0.937vw;
+   padding-bottom: 0.781vw;
+   border-bottom: 0.0732vw solid rgba(62, 62, 62, 0.1);
+   letter-spacing: 0.2px;
+}
+.genre-list-content {
+   padding-top: 1.458vw;
+}
+.genre-num {
+   position: relative;
+   padding-bottom: 1.098vw;
+}
+select.detail-edit.minimal {
+   color: #3E3E3E;
+   font-size: 0.93vw;
+   line-height: 1.8vw;
+   font-family: 'manrope';
+   font-weight: 700;
+   padding-left: 0;
+   letter-spacing: 0.5px;
+   border: none;
+   width: 100%;
+   cursor: pointer;
+}
+select.minimal{
+   background-image: url('../../assets/images/genre-edit.svg');
+   background-position: 98%;
+   background-size: 0.732vw;
+   background-repeat: no-repeat;
+   -webkit-appearance: none;
+}
+.genre-list-content .genre-num:last-child {
+   padding-bottom: 0 !important;
+}
+/*end*/

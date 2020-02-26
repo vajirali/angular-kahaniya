@@ -1,0 +1,30 @@
+<div class="custom-contest">
+  <div class="contest-image-date-name">
+    <div class="contest-img-name">
+      <div class="c-img"><img class="top-contest-img" src="../../assets/images/contest-profile.png"></div>
+      <div class="c-name-date">
+        <p class="c-name">Shashank</p>
+        <p class="c-date">April 27, 2019</p>
+      </div>
+    </div>
+    <div class="c-end-date">
+      {{ 'contestendedon' | translate }} Jun 24 2019
+    </div>
+  </div>
+  <div class="contest-slider-images" [ngStyle]="{'background-image':'url('+image+')'}"> </div>
+  <!--contest-slider-description--> 
+  <div class="contest-image-content">
+    <h6>Your Story, Our Movie</h6>
+    <p>Our careers are built upon your love for us and your appreciation of our work. We regularly hear great ideas from our fans for...</p>
+    <div class="story-sub-section">
+      <div class="story-section">
+        <img src="../../assets/images/story-contest.svg">
+        <span>7 {{ 'hometab_stories' | translate }}</span>
+      </div>
+      <div class="subscription-section">
+        <img src="../../assets/images/subscription-contest.svg">
+        <span>11 {{ 'subscribers' | translate }}</span>
+      </div>
+    </div>
+  </div>
+</div>

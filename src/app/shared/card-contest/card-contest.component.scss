@@ -1,0 +1,97 @@
+/*contest slider section*/
+.contest-slider-images {
+   background-repeat: no-repeat;
+   background-size: cover;
+   width: 100%;
+   height: 11.4166vw;
+}
+img.top-contest-img {
+   width: 3.125VW !important;
+   height: 3.125VW !important;
+   border-radius: 50%;
+}
+.contest-image-date-name {
+   display: flex;
+   align-items: center;
+   padding-bottom: 0.9375VW;
+}
+p.c-name {
+   margin-bottom: 0;
+   font-family: 'manrope';
+   font-weight: 600;
+   color: #3E3E3E;
+   font-size: 0.9375VW;
+   line-height: 1.614vw;
+}
+p.c-date {
+   margin-bottom: 0;
+   font-size: 0.7291vw;
+   font-family: 'manrope';
+   font-weight: normal;
+   color: rgba(62, 62, 62, 0.50);
+   line-height: 0.7291vw;
+}
+.c-end-date {
+   font-size: 0.7291vw;
+   font-family: 'manrope';
+   font-weight: normal;
+   color: rgba(67, 160, 71, 0.70);
+   line-height: 0.7291vw;
+}
+.c-name-date {
+   padding-left: 0.9375VW;
+}
+.contest-img-name {
+   display: flex;
+   align-items: center;
+   width: calc(70% - 0.366vw);
+}
+.contest-image-content {
+   padding-top: 0.833vw;
+}
+.contest-image-content h6 {
+   margin-bottom: 0;
+   font-family: 'manrope';
+   color: #3E3E3E;
+   font-weight: 700;
+   font-size: 1.041vw;
+   line-height: 1.7187vw;
+   padding-bottom: 0.729vw;
+}
+.contest-image-content p {
+   margin-bottom: 0;
+   font-family: 'manrope';
+   font-weight: normal;
+   color: #3E3E3E;
+   font-size: 0.8333vw;
+   line-height: 1.406vw;
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   margin-bottom: 1.25VW;
+}
+.story-sub-section span {
+   font-family: 'manrope';
+   font-size: 0.8333vw;
+   color: #3E3E3E;
+   font-weight: normal;
+   line-height: 1.406vw;
+   padding-left: 0.468vw;
+}
+.story-sub-section img {
+   width: 0.7291vw;
+   height: 0.7291vw;
+}
+.story-section,.subscription-section,.story-sub-section {
+   display: flex;
+   align-items: center;
+}
+.story-section {
+   padding-right: 1.9791vw;
+}
+.custom-contest {
+   padding: 1.25VW;
+   background: #fff;
+   box-shadow: 0 0.219vw 0.439vw rgba(0, 0, 0, 0.16);
+}

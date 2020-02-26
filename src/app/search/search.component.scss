@@ -1,0 +1,60 @@
+.auth-title {
+  height: 3.3854vw;
+  background: #3E3E3E;
+  color: #fff;
+  border-radius: 0 0.732vw 0.732vw 0;
+  width: 25.104vw;
+  text-align: center;
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9375VW;
+  font-family: 'manrope';
+  font-weight: 600;
+}
+.search-result {
+  padding-top: 115px;
+}
+.search-result-data {
+  padding-left: 9.11vw;
+  padding-right: 9.11vw;
+}
+.search-result-data .profile-wrting-series-content,
+.search-result-data .profile-wrting-story-content {
+  width: 15.92vw !important;
+  display: inline-block;
+  margin-right: 5.83vw;
+  margin-bottom: 3.66vw;
+}
+.search-result-data .profile-wrting-series-content:nth-child(4n+4),
+.search-result-data .profile-wrting-story-content:nth-child(4n+4) {
+  margin-right: 0;
+}
+.auth-titllebar {
+  display: inline-block;
+  width: 100%;
+  padding-bottom: 3.385vw;
+}
+.search-result-data .item {
+  width: 23.04vw !important;
+  display: inline-block;
+  margin-right: 5.856vw;
+  margin-bottom: 3.66vw;
+}
+.search-result-data .item:nth-child(3n+3) {
+  margin-right: 0;
+}
+.auth-titllebar .w-tab-header-sec {
+  width: 65.8%;
+  display: inline-block;
+  text-align: right;
+}
+.auth-titllebar .view-all {
+  font-family: 'manrope';
+  font-weight: 600;
+  color: #43A047;
+  font-size: 1.1vw;
+  text-transform: uppercase;
+  line-height: 0.937vw;
+  cursor: pointer;
+}

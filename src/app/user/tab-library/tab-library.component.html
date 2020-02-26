@@ -1,0 +1,244 @@
+<div class="library-tab-content">
+  <!--bookmark section-->
+  <div class="bookmark-section">
+    <div class="w-tab-header-sec">
+        <div class="title-name">{{"bookmarks" | translate}}</div>
+        <a routerLink="/all/bookmark/{{userId}}">
+          <div class="view-all" *ngIf="totalbookmark > 4">{{'viewall' | translate}}</div>
+         </a>
+    </div>
+    <div class="no-record" *ngIf="totalbookmark == 0">
+      <div class="notview-all-record" >{{'norecord' | translate}}</div>
+    </div>
+    <div class="p-l-b-main" *ngIf="bookmarkCollection">
+
+      <div class="profile-library-bookmark-content" *ngFor="let bookmark of bookmarkCollection;let i = index">
+        <div  *ngIf="i < 4 ">
+         <app-card-inner-stories class="bookmark" [stories]="bookmark.story_data" [genreData]="bookmarkCollection"></app-card-inner-stories>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!--offline section-->
+  <!-- <div class="offline-section">
+      <div class="w-tab-header-sec">
+          <div class="title-name">{{"offline" | translate}}</div>
+          <div class="view-all">{{"viewall" | translate}}</div>
+      </div>
+      <div class="p-l-o-main">
+        <div class="profile-library-offline-content">
+          <div class="offline-img-sec">
+            <img src="../../assets/images/offline-slider1.png">
+          </div>
+          <div class="tab-image-content fiction-image-content">
+              <div class="story-name-count-sec">
+                <div class="story-name">Inception</div>
+                <div class="story-count"><img src="../../assets/images/star.svg" /><span>4.5</span></div>
+              </div>
+              <div class="episodes">8 minute read</div>
+              <div class="writer-img-name">
+                <div class="writer-img"><img src="../../assets/images/bookmark-writer.png" /></div>
+                <div class="write-name-des">
+                  <h6>Shashank</h6>
+                  <p>In Fiction</p>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="profile-library-offline-content">
+            <div class="offline-img-sec">
+              <img src="../../assets/images/offline-slider2.png">
+            </div>
+            <div class="tab-image-content fiction-image-content">
+                <div class="story-name-count-sec">
+                  <div class="story-name">Inception</div>
+                  <div class="story-count"><img src="../../assets/images/star.svg" /><span>4.5</span></div>
+                </div>
+                <div class="episodes">8 minute read</div>
+                <div class="writer-img-name">
+                  <div class="writer-img"><img src="../../assets/images/bookmark-writer.png" /></div>
+                  <div class="write-name-des">
+                    <h6>Shashank</h6>
+                    <p>In Fiction</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div> -->
+
+  <!--subscribe section-->
+  <div class="subscribe-section">
+      <div class="w-tab-header-sec">
+          <div class="title-name">{{"subscribed" | translate}}</div>
+          <a routerLink="/all/subscribed/{{userId}}">
+            <div class="view-all" *ngIf="totalsubscribed > 4">{{"viewall" | translate}}</div>
+          </a>
+      </div>
+      <div class="no-record" *ngIf="totalsubscribed == 0">
+        <div class="notview-all-record" >{{'norecord' | translate}}</div>
+      </div>
+      <div class="p-l-s-main">
+        <div class="profile-wrting-series-content" *ngFor="let series of subscribedCollection; let i = index">
+          <div *ngIf="i < 4">
+              <app-card-inner-series [series]="series.kahani_data"></app-card-inner-series>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <!--purchase story section-->
+  <div class="purchase-section">
+      <div class="w-tab-header-sec">
+          <div class="title-name">{{"purchasedstories" | translate}}</div>
+          <a routerLink="/all/purchased/stories">
+              <div class="view-all" *ngIf="purchasedStoriesCollection.length > 4">{{'viewall' | translate}}</div>
+          </a>
+      </div>
+      <div class="no-record" *ngIf="purchasedStoriesCollection.length == 0">
+          <div class="notview-all-record" >{{'norecord' | translate}}</div>
+      </div>
+      <div class="p-l-b-main" *ngIf="purchasedStoriesCollection">
+          <div class="profile-library-bookmark-content" *ngFor="let story of purchasedStoriesCollection;let i = index">
+          <div  *ngIf="i < 4 ">
+              <app-card-inner-stories class="bookmark" [stories]="story"></app-card-inner-stories>
+          </div>
+          </div>
+      </div>
+  </div>
+
+<!--purchase series section-->
+  <div class="series-section purchase-s">
+    <div class="w-tab-header-sec">
+        <div class="title-name">{{'purchasedseries' | translate}}</div>
+        <a routerLink="/all/purchased/series">
+             <div class="view-all" *ngIf="purchasedSeriesCollection.length > 4">{{'viewall' | translate}}</div>
+        </a>
+    </div>
+    <div class="no-record" *ngIf="purchasedSeriesCollection.length == 0">
+        <div class="notview-all-record" >{{'norecord' | translate}}</div>
+    </div>
+    <div class="p-l-s-main" *ngIf="purchasedSeriesCollection">
+      <div class="profile-wrting-series-content" *ngFor="let series of purchasedSeriesCollection; let i = index">
+      <div *ngIf="i < 4">
+          <app-card-inner-series class="series" [series]="series"></app-card-inner-series>
+      </div>
+      </div>
+    </div>
+</div>
+
+  <!--favorites section-->
+  <!-- <div class="favorites-section">
+      <div class="w-tab-header-sec">
+          <div class="title-name">{{"favorites" | translate}}</div>
+          <div class="view-all">{{"viewall" | translate}}</div>
+      </div>
+      <div class="p-l-f-main">
+        <div class="profile-library-favorites-content">
+          <div class="favorites-img-sec">
+            <img src="../../assets/images/fav-slider1.png">
+          </div>
+          <div class="tab-image-content fiction-image-content">
+              <div class="story-name-count-sec">
+                <div class="story-name">Inception</div>
+                <div class="story-count"><img src="../../assets/images/star.svg" /><span>4.5</span></div>
+              </div>
+              <div class="episodes">8 minute read</div>
+              <div class="writer-img-name">
+                <div class="writer-img"><img src="../../assets/images/bookmark-writer.png" /></div>
+                <div class="write-name-des">
+                  <h6>Shashank</h6>
+                  <p>In Fiction</p>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+  </div> -->
+  <!--history section-->
+  <!-- <div class="history-section">
+      <div class="w-tab-header-sec">
+          <div class="title-name">{{"history" | translate}}</div>
+          <div class="view-all">{{"viewall" | translate}}</div>
+      </div>
+      <div class="p-l-h-main">
+        <div class="profile-library-history-content">
+          <div class="tab-img-sec">
+            <img src="../../assets/images/tab-slider1.png">
+          </div>
+          <div class="tab-image-content">
+              <div class="story-name-count-sec">
+                <div class="story-name">Space Bound</div>
+                <div class="story-count"><img src="../../assets/images/subscription.svg" /><span>33</span></div>
+              </div>
+              <div class="episodes">13 Episodes</div>
+              <div class="writer-img-name">
+                <div class="writer-img"><img src="../../assets/images/story-img.png" /></div>
+                <div class="write-name-des">
+                  <h6>Shashank</h6>
+                  <p>In Fiction</p>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="profile-library-history-content">
+            <div class="tab-img-sec">
+              <img src="../../assets/images/tab-slider2.png">
+            </div>
+            <div class="tab-image-content">
+                <div class="story-name-count-sec">
+                  <div class="story-name">Space Bound</div>
+                  <div class="story-count"><img src="../../assets/images/subscription.svg" /><span>33</span></div>
+                </div>
+                <div class="episodes">13 Episodes</div>
+                <div class="writer-img-name">
+                  <div class="writer-img"><img src="../../assets/images/story-img.png" /></div>
+                  <div class="write-name-des">
+                    <h6>Shashank</h6>
+                    <p>In Fiction</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="profile-library-history-content">
+            <div class="tab-img-sec">
+              <img src="../../assets/images/tab-slider3.png">
+            </div>
+            <div class="tab-image-content">
+                <div class="story-name-count-sec">
+                  <div class="story-name">Space Bound</div>
+                  <div class="story-count"><img src="../../assets/images/subscription.svg" /><span>33</span></div>
+                </div>
+                <div class="episodes">13 Episodes</div>
+                <div class="writer-img-name">
+                  <div class="writer-img"><img src="../../assets/images/story-img.png" /></div>
+                  <div class="write-name-des">
+                    <h6>Shashank</h6>
+                    <p>In Fiction</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="profile-library-history-content">
+            <div class="tab-img-sec">
+              <img src="../../assets/images/tab-slider4.png">
+            </div>
+            <div class="tab-image-content">
+                <div class="story-name-count-sec">
+                  <div class="story-name">Space Bound</div>
+                  <div class="story-count"><img src="../../assets/images/subscription.svg" /><span>33</span></div>
+                </div>
+                <div class="episodes">13 Episodes</div>
+                <div class="writer-img-name">
+                  <div class="writer-img"><img src="../../assets/images/story-img.png" /></div>
+                  <div class="write-name-des">
+                    <h6>Shashank</h6>
+                    <p>In Fiction</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div> -->
+</div>

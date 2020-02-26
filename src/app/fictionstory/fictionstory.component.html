@@ -1,0 +1,228 @@
+<div class="fication-story-section">
+  <div class="fication-story-bg">
+      <span *ngIf="!StoryCollection" class="detail-page-loader"><img src="../../assets/images/loader.gif"></span>
+    <div *ngIf="StoryCollection" class="fication-story-content">
+      <div class="f-s-left">
+        <div class="f-s-img">
+            <img default="{{globalservice.dummyImage}}" src="{{ StoryCollection.cover_image_data }}">
+        </div>
+      </div>
+      <div class="f-s-middle">
+          <div class="main-story-section">
+            <div class="story-header">
+              <div class="story-name">{{ StoryCollection.title }}</div>
+              <div class="writer-name">{{ StoryCollection.tag_line }}</div>
+            </div>
+            <div class="story-review-share-zoom-section">
+              <div class="view-review-section">
+                <div class="story-view">
+                  <img src="../../assets/images/eye.svg">
+                  <span>{{ StoryCollection.views }} {{"views" | translate}}</span>
+                </div>
+                <div class="story-review">
+                    <img src="../../assets/images/clock.svg">
+                    <span>{{ StoryCollection.minutes }} min read</span>
+                </div>
+                <div class="story-comment">
+                    <img src="../../assets/images/comment.svg">
+                    <span *ngIf="CommentCollection">{{ CommentCollection.count }} comments</span>
+                </div>
+              </div>
+              <!-- <div class="share-info-zoom-section">
+                <div class="heart-img"><img src="../../assets/images/heart.svg"></div>
+                <div class="info-img"><img src="../../assets/images/info.svg"></div>
+                <div class="share-img"><img src="../../assets/images/share.svg"></div>
+                <div class="zoom-img"><img src="../../assets/images/full-screen.svg"></div>
+              </div> -->
+            </div>
+            <!--[innerHTML]="getnanoData(StoryCollection.story_content) | nl2br"-->
+            <div class="story-main-content" >
+                <quill-view [content]="getnanoData(StoryCollection.story_content)" format="object" ></quill-view>
+            </div>
+           <!--  <button class="btn btn-primary btn-start-reading" *ngIf="readmoreBtn && !StoryCollection.is_purchased" (click)="moreContent()">{{"startreading" | translate}}</button> -->
+            <button class="btn btn-primary btn-start-reading" *ngIf="!is_full" (click)="purchaseModal(purchasepopup)">{{"startreading" | translate}}</button>
+
+          </div>
+          <div class="app-bg-picture">
+              <img src="../../assets/images/app-banner.png">
+          </div>
+          <div class="fiction-story-sec-2">
+              <div class="f-s-s-2">
+
+              </div>
+              <div class="bottom-rating-share-comment-sec">
+                <div class="bottom-rating" *ngIf="StoryCollection.is_rated">
+                  <div class="rating-img" *ngFor="let item of [1,2,3,4,5]">
+                      <img src="../../assets/images/star.svg" *ngIf="item <= StoryCollection.user_rating.rating">
+                      <img src="../../assets/images/blank_star.svg" *ngIf="item > StoryCollection.user_rating.rating">
+                  </div>
+                  <div class="rating-count">({{ StoryCollection.average_rating }} Ratings)</div>
+                </div>
+                <div class="bottom-rating add-rat" *ngIf="!StoryCollection.is_rated">
+                    <div class="rating-img" *ngFor="let item of [1,2,3,4,5]">
+                        <img src="../../assets/images/blank_star.svg" (click)="addrating(item)">
+                    </div>
+                    <div class="rating-count">({{ StoryCollection.average_rating }} Ratings)</div>
+                </div>
+                <div class="comment-heart-sect">
+                    <img src="../../assets/images/fill-comment.svg">
+                    <img src="../../assets/images/heart.svg">
+                </div>
+                <div class="social-share-section">
+                    <div class="facebook-share-sec">
+                        <button class="btn-social"><img src="../../assets/images/facebook-logo.svg">Share</button>
+                        <div class="fb-count">3</div>
+                    </div>
+                    <div class="like-count-sec">
+                        <button class="btn-social"><img src="../../assets/images/like-white.svg">Like</button>
+                        <div class="like-count">2.6K</div>
+                    </div>
+                </div>
+              </div>
+          </div>
+          <!-- <div class="suggested-read-section">
+            <div class="suggested-read-title">
+                Suggested Reads
+            </div>
+            <div class="suggested-read-content">
+              <div class="p-w-st-main">
+                <div class="profile-wrting-story-content">
+                  <div class="stories-img">
+                    <img src="../../assets/images/suggested-read.png">
+                  </div>
+                  <div class="tab-image-content thriller-image-content">
+                      <div class="story-name-count-sec">
+                        <div class="story-name">Story Snatchers</div>
+                        <div class="story-count"><img src="../../assets/images/star.svg" /><span>5</span></div>
+                      </div>
+                      <div class="episodes">8 minute read</div>
+                      <div class="writer-img-name">
+                        <div class="writer-img"><img src="../../assets/images/story-img.png" /></div>
+                        <div class="write-name-des">
+                          <h6>Shashank</h6>
+                          <p>In Fiction</p>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="profile-wrting-story-content">
+                  <div class="stories-img">
+                    <img src="../../assets/images/suggested-read.png">
+                  </div>
+                  <div class="tab-image-content thriller-image-content">
+                      <div class="story-name-count-sec">
+                        <div class="story-name">Story Snatchers</div>
+                        <div class="story-count"><img src="../../assets/images/star.svg" /><span>5</span></div>
+                      </div>
+                      <div class="episodes">8 minute read</div>
+                      <div class="writer-img-name">
+                        <div class="writer-img"><img src="../../assets/images/story-img.png" /></div>
+                        <div class="write-name-des">
+                          <h6>Shashank</h6>
+                          <p>In Fiction</p>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="profile-wrting-story-content">
+                  <div class="stories-img">
+                    <img src="../../assets/images/suggested-read.png">
+                  </div>
+                  <div class="tab-image-content thriller-image-content">
+                      <div class="story-name-count-sec">
+                        <div class="story-name">Story Snatchers</div>
+                        <div class="story-count"><img src="../../assets/images/star.svg" /><span>5</span></div>
+                      </div>
+                      <div class="episodes">8 minute read</div>
+                      <div class="writer-img-name">
+                        <div class="writer-img"><img src="../../assets/images/story-img.png" /></div>
+                        <div class="write-name-des">
+                          <h6>Shashank</h6>
+                          <p>In Fiction</p>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <div class="comment-section">
+            <div class="comment-header">
+                <div class="comment-title" *ngIf="CommentCollection">Comments({{ CommentCollection.count }})</div>
+            </div>
+            <div class="comment-content-section">
+                <div class="type-comment-section">
+                  <div class="login-user-img-sec">
+                    <img default="{{ globalservice.dummyuser }}" src="{{ userProfilePic }}">
+                  </div>
+                  <input class="type-comment" type="text" name="type-comment" [(ngModel)]="writecomment" placeholder="Type your comment here">
+                  <button class="add-comment" [disabled]="!writecomment" (click)="addComment()">
+                    <div class="add-comment-img"></div>
+                  </button>
+                  <!-- <button class="btn btn-primary btn-follow i-btn-follow" (click)="addComment()">Post</button> -->
+                </div>
+                <div *ngIf="CommentCollection" class="all-comment-sec">
+                  <div class="a-c-se" *ngFor="let comments of CommentCollection.results">
+                    <div class="user-img"><img default="{{ globalservice.dummyuser }}" src="{{ comments.user.image }}"></div>
+                    <div class="user-com-des">
+                      <h6>{{ comments.user.full_name }}</h6>
+                      <p>{{ comments.content }}</p>
+                      <!-- <div class="replay-bnt">REPLY</div> -->
+                    </div>
+                    <div class="comment-post-date">Posted on {{ convertDate(comments.created_at) }}</div>
+                  </div>
+                </div>
+            </div>
+          </div>
+      </div>
+      <div class="f-s-right">
+          <div class="i-right-content">
+              <div class="i-bg-right"><img src="../../assets/images/story-p-right-bg.png"></div>
+              <div class="i-content">
+                  <a routerLink="/u/{{ StoryCollection.kahani_data.author.id }}">
+                     <img default="{{ globalservice.dummyuser}}" src="{{ StoryCollection.kahani_data.author.image }}">
+                  </a>
+                <div class="i-auth-name">{{ StoryCollection.kahani_data.author.full_name }}</div>
+                <div class="i-auth-des" [innerHTML]="StoryCollection.kahani_data.author.biography | nl2br "></div>
+                <div class="follow-writing-section">
+                  <div class="followers-section">
+                    <div class="followers-count">{{ StoryCollection.kahani_data.author.followers }}</div>
+                    <div class="f-name">{{"prowrit_followers" | translate}}</div>
+                  </div>
+                  <div class="writing-section">
+                    <div class="writing-count">{{ StoryCollection.kahani_data.author.writings }}</div>
+                    <div class="w-name">{{"prowrit_writtings" | translate}}</div>
+                  </div>
+                </div>
+
+                  <button [disabled]="StoryCollection.kahani_data.author.id == userId" *ngIf="!StoryCollection.kahani_data.author.is_following" class="btn btn-primary btn-follow i-btn-follow" (click)="followAuthor(StoryCollection.kahani_data.author.id)">{{"follow" | translate}}</button>
+                  <button [disabled]="StoryCollection.kahani_data.author.id == userId" *ngIf="StoryCollection.kahani_data.author.is_following" class="btn btn-primary btn-follow i-btn-follow" (click)="unfollowAuthor(StoryCollection.kahani_data.author.id)">{{"unfollow" | translate}}</button>
+
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #purchasepopup>
+<div class="modal-header">
+  <img src="../../assets/images/coin.png">
+</div>
+<div class="modal-body purchse-popup-content">
+  <div class="main-popup-section">
+      <h4>Purchase to continue reading</h4>
+      <p>The writer of the story requests that you pay a small sum and purchase the story to continue reading</p>
+      <a RouterLink="#">
+        <h3>Why should I pay to read?</h3>
+      </a>
+  </div>
+</div>
+<div class="modal-footer">
+    <div class="btn-purchae-sec">
+      <button type="button" [disabled]="paybtndsbl" class="btn btn-primary popup-coin-btn" (click)="payCoin()">PAY {{ StoryCollection.pricing.coins }} COINS FOR STORY </button>
+      <button type="button" class="btn btn-primary popup-purchase-close-btn" aria-label="Close" (click)="modalRef.hide()">I'd rather not read</button>
+    </div>
+</div>
+</ng-template>

@@ -1,0 +1,297 @@
+/*coin bank sec*/
+.ac-rec-sec {
+    display: flex;
+    padding-bottom: 3.697vw;
+  }
+  .account-info-setion {
+    width: 27.682vw;
+    border-right: 0.0732vw solid rgba(62, 62, 62, 0.15);
+  }
+  .recharge-section {
+    width: 28vw;
+    padding-left: 3.906vw;
+  }
+  .account-info-setion h6,.recharge-section h6{
+    font-family: 'manrope';
+    color: #3E3E3E;
+    font-weight: 600;
+    font-size: 1.0416vw;
+    line-height: 0.937vw;
+    margin-bottom: 0;
+  }
+  .account-info-setion h6 {
+    padding-bottom: 1.354vw;
+  }
+  .account-info-setion p {
+    font-family: 'manrope';
+    font-weight: normal;
+    color: rgba(62, 62, 62, 0.50);
+    font-size: 0.729vw;
+    line-height: 0.9895vw;
+    margin-bottom: 0;
+    padding-bottom: 1.302vw;
+  }
+  span.c-count {
+    font-family: 'manrope';
+    font-weight: 600;
+    color: #3E3E3E;
+    font-size: 2.0833vw;
+    vertical-align: middle;
+    line-height: 2.916vw;
+    margin-left: 0.5208vw;
+  }
+  .rech-amo-sec {
+     padding-top: 3.385vw;
+  }
+  .selected-recharge-sec .titl {
+    font-size: 0.833vw;
+    font-weight: 600;
+    font-family: 'manrope';
+    color: #3E3E3E;
+    width: calc(80% - 2.928vw);
+  }
+  .selected-recharge-sec{
+    display: flex;
+    align-items: center;
+    padding-bottom: 1.458vw;
+  }
+  .selected-amo-sec {
+    font-size: 1.0416vw;
+    font-weight: 600;
+    font-family: 'manrope';
+    color: #3E3E3E;
+  }
+  
+  button.btn.btn-primary.btn-pay {
+    margin-top: 2.3958vw;
+    font-weight: 600;
+    font-family: 'manrope';
+    text-transform: uppercase;
+    padding: 0.565VW 2.975VW;
+  }
+  .term {
+    text-align: center;
+    padding-top: 0.937vw;
+    font-weight: 600;
+    font-size: 0.8333vw;
+    color: #43A047;
+    font-family: 'manrope';
+    cursor: pointer;
+  }
+  .t-h-title {
+    font-family: 'manrope';
+    font-weight: 600;
+    color: #3E3E3E;
+    font-size: 1.0416vw;
+    line-height: 0.937vw;
+    padding-bottom: 1.822vw;
+  }
+  .transaction-history-section .table thead th {
+    border-bottom: none;
+    padding-bottom: 0.989vw;
+    color: rgba(62, 62, 62, 0.50);
+    font-size: 0.929vw;
+    font-weight: 600;
+    font-family: 'manrope';
+  }
+  .transaction-history-section .table th, .transaction-history-section .table td {
+    border-top: none;
+    padding: 0;
+  }
+  .transaction-history-section .table td{
+    font-family: 'manrope';
+    font-weight: 600;
+    color: #3E3E3E;
+    font-size: 1.03vw;
+    padding-bottom:1.8229vw;
+  }
+  .transaction-history-section table.table {
+    margin-bottom: 0px;
+  }
+  /*range slider css start*/
+.range {
+    position: relative;
+    top: 1.683vw;
+  }
+  .range-slider-section {
+    padding-top: 1.830vw;
+    position: relative;
+  }
+  .range input {
+    width: 100%;
+    -webkit-appearance: none;
+  }
+  .range input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 0.732vw;
+    height: 0.732vw;
+    margin: -0.292vw 0 0 0;
+    border-radius: 50%;
+    background: #43A047;
+    cursor: pointer;
+    border: 0 !important;
+  }
+  .range input::-moz-range-thumb {
+    width: 0.732vw;
+    height: 0.732vw;
+    margin: -0.585vw 0  0;
+    border-radius: 50%;
+    background: #43A047;
+    cursor: pointer;
+    border: 0 !important;
+  }
+  .range input::-ms-thumb {
+    width: 0.732vw;
+    height: 0.732vw;
+    margin: -0.585vw 0  0;
+    border-radius: 50%;
+    background: #43A047;
+    cursor: pointer;
+    border: 0 !important;
+  }
+  .range input::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 0.146vw;
+    cursor: pointer;
+    background: #a5d6a7;
+  }
+  ul.range-labels li.active:after {
+    content: '';
+    border: 0.0732vw solid #43A047;
+    width: 100%;
+    position: absolute;
+    left: -2.928vw;
+    top: 0.439vw;
+    z-index: -1;
+  }
+  .range input::-moz-range-track {
+    width: 100%;
+    height: 0.146vw;
+    cursor: pointer;
+    background: #a5d6a7;
+  }
+  .range input::-ms-track {
+    width: 100%;
+    height: 0.146vw;
+    cursor: pointer;
+    background: #a5d6a7;
+  }
+  .range input:focus {
+    background: none;
+    outline: none;
+  }
+  .range input::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  
+  .range-labels {
+    margin: 1.317vw 0px 0;
+    padding: 0;
+    list-style: none;
+  }
+  .range-labels li {
+    position: relative;
+    float: left;
+    width: 0.732vw;
+    height: 0.732vw;
+    text-align: center;
+    color: #b2b2b2;
+    font-size: 1.025vw;
+    cursor: pointer;
+    top: -0.658vw;
+    padding-right: 3.337vw;
+  }
+  .range-labels li:last-child {
+    padding-right: 0 !important;
+  }
+  .range-labels li:last-child{ margin-right: 0px;}
+  .range-labels li::before {
+    position: absolute;
+    bottom: -0.146vw;
+    right: 0;
+    left: 0;
+    content: "";
+    width: 0.732vw;
+    height: 0.732vw;
+    background: #a5d6a7;
+    border-radius: 50%;
+  }
+  .range-labels li.active::before{
+    position: absolute;
+    bottom: -0.146vw;
+    right: 0;
+    left: 0;
+    content: "";
+    width: 0.732vw;
+    height: 0.732vw;
+    background: #43A047;
+    border-radius: 50%;
+  }
+  .range-labels .active {
+    color: #43A047;
+    z-index:99;
+  }
+  .range-labels .selected::before {
+    background: #43A047;
+  }
+  .range-labels .active.selected::before {
+    display: none;
+  }
+  
+  li span {
+    position: absolute;
+    bottom: 1.611vw;
+    left: -1.098vw;
+    width: 2.928vw;
+    display: none;
+    font-size: 0.8333vw;
+    font-family: 'manrope';
+    font-weight: normal;
+    background: #fff;
+    border-radius: 0.366vw;
+    box-shadow: 0px 0.219vw 0.439vw rgba(0, 0, 0, 0.15);
+  }
+  li.active span:after {
+     bottom: 100%;
+     right: 1.098vw;
+     border: solid transparent;
+     content: " ";
+     height: 0;
+     top: 1.244vw;
+     width: 0;
+     position: absolute;
+     pointer-events: none;
+     border-color: rgba(231, 76, 60, 0);
+     border-top-color: #fff;
+     border-width: 0.366vw;
+  }
+  .range-labels li:first-child::before {
+    display: none;
+  }
+  .range-labels li:first-child::after {
+    display: none;
+  }
+  ul.range-labels li:last-child:after{
+    width: 3.075vw;
+  }
+  li:hover > span,.range-labels .active span.selected{display: block;}
+  li:hover > span,.range-labels .active span:after{display: block;}
+  input.inner-file-input {
+    position: absolute;
+    top: 1.510vw;
+    left: 2.928vw;
+    display: block;
+    width: 10.78125VW;
+    height: 10.78125VW;
+    opacity: 0;
+    -moz-opacity: 0;
+    margin-top: -20px;
+    cursor: pointer;
+    z-index: 1111;
+  }
+
+  /*end*/

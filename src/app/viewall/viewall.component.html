@@ -1,0 +1,117 @@
+<span *ngIf="!genreData && !popularauthorData && !popularcontestData && !popularseriesData && !subscribed && !popularnanoData && !popularbookmark && !searchseriesCollection && !searchstoriesCollection && !searchauthorsCollection && !popularnanoCollection && !popularstoryCollection && !popularseriesCollection && !purchasedStoriesCollection && !purchasedSeriesCollection" class="detail-page-loader">
+  <img src="../../assets/images/loader.gif">
+</span>
+<div class="view-all-section">
+  <div class="auth-titllebar">
+    <div *ngIf="genreData && !authorProfile" class="auth-title">{{ 'home_popularstoriesin' | translate }} {{ globalservice.getGenerLable(genreData) }}</div>
+    <div *ngIf="popularauthorData" class="auth-title">{{ 'home_popularauthors' | translate }}</div>
+    <div *ngIf="popularcontestData" class="auth-title">{{ 'home_contests' | translate }}</div>
+    <div *ngIf="authorProfilenano" class="auth-title">{{ authorProfilenano.full_name}} {{ 'snanostories' | translate }}</div>
+    <div *ngIf="authorProfile" class="auth-title">{{ authorProfile.full_name  }} {{ 'sstories' | translate }}</div>
+    <div *ngIf="authorProfileseries" class="auth-title">{{ authorProfileseries.full_name  }} {{ 'sseries' | translate }}</div>
+    <div *ngIf="authorProfilebookmark" class="auth-title">{{ authorProfilebookmark.full_name  }} {{ 'sbookmark' | translate }}</div>
+    <div *ngIf="searchseriesCollection" class="auth-title">{{ 'resultsfor' | translate }} "{{ this.value }}"</div>
+    <div *ngIf="searchstoriesCollection" class="auth-title">{{ 'resultsfor' | translate }} "{{ this.value }}"</div>
+    <div *ngIf="searchauthorsCollection" class="auth-title">{{ 'resultsfor' | translate }} "{{ this.value }}"</div>
+    <div *ngIf="popularnanoCollection" class="auth-title">{{ 'popularnanostories' | translate }}</div>
+    <div *ngIf="popularstoryCollection" class="auth-title">{{ 'popularstories' | translate }}</div>
+    <div *ngIf="popularseriesCollection" class="auth-title">{{ 'popularseries' | translate }}</div>
+    <div *ngIf="purchasedStoriesCollection" class="auth-title">{{ 'purchasedstories' | translate }}</div>
+    <div *ngIf="purchasedSeriesCollection" class="auth-title">{{ 'purchasedseries' | translate }}</div>
+    <div *ngIf="subscribed" class="auth-title">{{ 'subscribed' | translate }}</div>
+
+
+  <div class="all-auth" (click) ="backClicked()"><img src="../../assets/images/back-arrow.svg"><span>{{ 'back' | translate }}</span></div>
+  </div>
+
+  <div *ngIf="genreData" class="viewall-content-section">
+     <div class="item" *ngFor="let stories of genreData;let i = index">
+        <app-card-inner-stories [stories]="stories" [genreData]="genreData"></app-card-inner-stories>
+      </div>
+  </div>
+
+  <div *ngIf="popularauthorData" class="viewall-content-section popluar-data">
+    <div class="item" *ngFor="let author of popularauthorData;let i = index">
+        <app-card-author [author]="author"></app-card-author>
+    </div>
+  </div>
+
+  <div *ngIf="popularcontestData" class="viewall-content-section popluar-contests-data">
+      <div class="item" *ngFor="let image of popularcontestData;let i = index">
+          <app-card-contest [image]="image"></app-card-contest>
+      </div>
+  </div>
+
+  <div *ngIf="popularseriesData" class="viewall-content-section popluar-series-data">
+    <div class="item" *ngFor="let series of popularseriesData;let i = index">
+      <app-card-inner-series [series]="series"></app-card-inner-series>
+    </div>
+  </div>
+
+  <div *ngIf="subscribed" class="viewall-content-section popluar-series-data">
+    <div class="item" *ngFor="let series of subscribed;let i = index">
+      <app-card-inner-series [series]="series.kahani_data"></app-card-inner-series>
+    </div>
+  </div>
+
+  <div *ngIf="popularnanoData" class="viewall-content-section popluar-nano-data">
+    <div class="item" *ngFor="let nanos of popularnanoData;let i = index">
+      <app-card-nanostory [nanos]="nanos"></app-card-nanostory>
+    </div>
+  </div>
+
+  <div *ngIf="popularbookmark" class="viewall-content-section popluar-bookmark-data">
+      <div class="item" *ngFor="let bookmark of popularbookmark;let i = index">
+          <app-card-inner-stories class="bookmark" [stories]="bookmark.story_data"></app-card-inner-stories>
+      </div>
+  </div>
+
+  <div *ngIf="searchseriesCollection" class="viewall-content-section popluar-series-data">
+    <div class="item" *ngFor="let series of searchseriesCollection;let i = index">
+        <app-card-series [series]="series"></app-card-series>
+    </div>
+  </div>
+
+  <div *ngIf="searchstoriesCollection" class="viewall-content-section">
+    <div class="item" *ngFor="let stories of searchstoriesCollection;let i = index">
+        <app-card-stories [stories]="stories"></app-card-stories>
+      </div>
+  </div>
+
+  <div *ngIf="searchauthorsCollection" class="viewall-content-section popluar-data">
+    <div class="item" *ngFor="let author of searchauthorsCollection;let i = index">
+        <app-card-author [author]="author"></app-card-author>
+    </div>
+  </div>
+
+  <div *ngIf="popularnanoCollection" class="viewall-content-section popluar-nano-data">
+    <div class="item" *ngFor="let nanos of popularnanoCollection;let i = index">
+      <app-card-nanostory [nanos]="nanos"></app-card-nanostory>
+    </div>
+  </div>
+
+  <div *ngIf="popularstoryCollection" class="viewall-content-section popluar-bookmark-data">
+    <div class="item" *ngFor="let stories of popularstoryCollection;let i = index">
+      <app-card-stories [stories]="stories"></app-card-stories>
+    </div>
+  </div>
+
+  <div *ngIf="popularseriesCollection" class="viewall-content-section popluar-series-data">
+    <div class="item" *ngFor="let series of popularseriesCollection;let i = index">
+        <app-card-series [series]="series"></app-card-series>
+    </div>
+  </div>
+
+  <div *ngIf="purchasedStoriesCollection" class="viewall-content-section popluar-bookmark-data">
+    <div class="item" *ngFor="let stories of purchasedStoriesCollection;let i = index">
+      <app-card-inner-stories [stories]="stories"></app-card-inner-stories>
+    </div>
+  </div>
+
+  <div *ngIf="purchasedSeriesCollection" class="viewall-content-section popluar-series-data">
+    <div class="item" *ngFor="let series of purchasedSeriesCollection;let i = index">
+        <app-card-inner-series [series]="series"></app-card-inner-series>
+    </div>
+  </div>
+
+</div>
