@@ -35,7 +35,7 @@
     "ngx-textarea-autosize": "^2.0.3",
     "ngx-toastr": "^10.0.4",
     "owl.carousel": "^2.3.4",
-    "quill": "^1.3.6",
+    "quill": "^1.3.7",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
